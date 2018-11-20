@@ -29,8 +29,8 @@
                <!-- Anotações -->
                <div class="col-6">
                    <form class="form-group">
-                       <textarea class="form-control autoExpand" rows="3" data-min-rows="3"></textarea>
-                       <button class="btn btn-primary">Salvar</button>
+                       <textarea class="form-control autoExpand" rows="12" data-min-rows="3"></textarea>
+                       <button class="btn btn-primary" style="margin-top: 5px">Salvar</button>
                    </form>
                </div>
            </div>
