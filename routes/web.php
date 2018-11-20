@@ -13,6 +13,6 @@
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/about', function () {
-    return view('welcome');
-});
+Route::get('/painelgeral', 'PagesController@painelgeral');
+Route::get('/sensores', 'PagesController@sensores');
+Route::get('/sensor', 'PagesController@sensor');

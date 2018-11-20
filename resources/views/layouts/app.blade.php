@@ -8,14 +8,18 @@
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
     <!-- CSS Custom -->
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    <!-- CSS Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 
     <title>{{ config('app.name', 'IoT Prototype') }}</title>
 </head>
 <body>
+    @yield('navbar')
     @yield('content')
 
     <!-- Scripts bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
+    <script src="{{ asset('js/popper.min.js') }}"></script>
 </body>
