@@ -5,7 +5,7 @@
         <h1 class="text-center titulo">Meus Sensores</h1>
         <div class="row col-12" style="padding-top: 20px;">
             <!-- Card Sensor -->
-            <div class="sensores">
+            <div class="sensores col-md-4">
                 <div class="nomeSensor">
                     <a class="link" href="/sensor"><h3 class="d-inline">Nome do Sensor</h3></a>
                     <i class="fas fa-battery-full d-inline float-right iconBateria"></i>
