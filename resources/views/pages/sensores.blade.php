@@ -1,29 +1,26 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container col-12">
-        <h1 class="text-center titulo">Meus Sensores</h1>
-        <div class="row col-12" style="padding-top: 20px;">
-            <!-- Card Sensor -->
-            <div class="sensores col-md-4">
-                <div class="nomeSensor">
-                    <a class="link" href="/sensor"><h3 class="d-inline">Nome do Sensor</h3></a>
-                    <i class="fas fa-battery-full d-inline float-right iconBateria"></i>
+    <div class="container" style="margin-top: 20px;">
+        <div class="container-fluid col-md-4">
+            <div class="row">
+                <div class="col-6">Título</div>
+                <div class="col-4">
+                    <a href="/sensor" class="d-inline float-right ">Detalhes</a>
                 </div>
-                <div class="corpo">
-                    <a class="link" href="/sensor"><h1 class="temperatura">-3 °C</h1></a>
-                    <p class="hora">13/11/2018 14:30:15</p>
+                <div class="col-2">
+                    <a href="/configurarsensor"><i class="fas fa-cog d-inline float-right"></i></a>
                 </div>
             </div>
-
-            <!-- Adicionar Grupo -->
-            <div class="sensores">
-                <div class="nomeSensor">
-                    <h3 class="d-inline">Nome do Sensor</h3>
-                    <i class="fas fa-battery-full d-inline float-right iconBateria"></i>
+            <div class="corpo">
+                <div class="col-12">
+                    <h1>10 °C</h1>
                 </div>
-                <div class="corpo">
-                    <div id="slider" class="slider"></div>
+                <div class="row">
+                    <div class="col-6">
+                        <i class="fas fa-battery-full iconBateria"></i>
+                    </div>
+                    <div class="col-6"><p class="hora">13/11/2018 14:30:15</p></div>
                 </div>
             </div>
         </div>

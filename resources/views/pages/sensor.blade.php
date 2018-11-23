@@ -7,7 +7,7 @@
            <div class="col-12 row container-temp-chart">
                 <!-- Temperatura -->
                 <div class="col-lg-6 col-md-12">
-                    <a class="link" href="/sensor"><h1 class="temperatura">-3 °C</h1></a>
+                    <h1 class="temperatura">-3 °C</h1>
                 </div>
 
                <!-- Histórico de Variação -->
@@ -29,7 +29,8 @@
                <!-- Anotações -->
                <div class="col-6">
                    <form class="form-group">
-                       <textarea class="form-control autoExpand" rows="12" data-min-rows="3"></textarea>
+                       <label for="">Observações</label>
+                       <textarea class="form-control autoExpand" rows="12" data-min-rows="3" placeholder="Observações gerais sobre o sensor"></textarea>
                        <button class="btn btn-primary" style="margin-top: 5px">Salvar</button>
                    </form>
                </div>

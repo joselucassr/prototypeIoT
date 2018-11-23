@@ -21,4 +21,25 @@ class PagesController extends Controller
     public function sensor(){
         return view('pages.sensor');
     }
+
+    public function cadastro(){
+        return view('pages.cadastro');
+    }
+
+    public function editarCadastro(){
+        return view('pages.editarCadastro');
+    }
+
+    public function editarGrupo(){
+        return view('pages.editarGrupo');
+    }
+
+    public function adicionarGrupo(){
+        return view('pages.adicionarGrupo');
+    }
+
+    public function configurarSensor(){
+        return view('pages.configurarSensor');
+    }
+
 }

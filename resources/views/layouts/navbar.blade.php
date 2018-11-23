@@ -2,7 +2,7 @@
 
 @section('navbar')
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Projeto Omega</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +16,7 @@
                 <a class="nav-link" href="#">Relatório</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Configurações</a>
+                <a class="nav-link" href="/editarcadastro">Meus Dados</a>
             </li>
         </ul>
         <div class="float-right row" style="padding-right: 20px">
