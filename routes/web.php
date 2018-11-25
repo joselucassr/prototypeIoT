@@ -20,4 +20,5 @@ Route::get('/cadastro', 'PagesController@cadastro');
 Route::get('/editargrupo', 'PagesController@editarGrupo');
 Route::get('/adicionargrupo', 'PagesController@adicionarGrupo');
 Route::get('/configurarsensor', 'PagesController@configurarSensor');
+Route::get('/adicionarsensor', 'PagesController@adicionarSensor');
 Route::get('/editarcadastro', 'PagesController@editarCadastro');

@@ -42,4 +42,8 @@ class PagesController extends Controller
         return view('pages.configurarSensor');
     }
 
+    public function adicionarSensor(){
+        return view('pages.adicionarSensor');
+    }
+
 }
