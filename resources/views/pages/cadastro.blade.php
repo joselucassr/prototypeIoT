@@ -3,43 +3,91 @@
 @section('content')
     <div class="container">
         <h2 class="text-center">Cadastro</h2>
-        <form>
+        <form method="POST" action="/register">
+            {{ csrf_field() }}
 
             <!-- Empresa -->
             <div class="form-empresa">
                 <h3>Empresa</h3>
                 <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="nomeempresa">Nome Empresa</label>
-                        <input type="text" class="form-control" id="nomeempresa" placeholder="Nome da empresa">
+                    <!-- NOME DA EMPRESA -->
+                    <div class="form-group{{ $errors->has('nomeempresa') ? ' has-error' : '' }} col-md-6">
+                        <label for="nome_empresa">Nome Empresa</label>
+                        <input id="nome_empresa" type="text" class="form-control" name="nome_empresa" value="{{ old('nome_empresa') }}" required autofocus placeholder="Nome da empresa">
+
+                        @if ($errors->has('nome_empresa'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('nome_empresa') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- CNPJ -->
                     <div class="form-group col-md-6">
                         <label for="cnpj">CNPJ</label>
-                        <input type="number" class="form-control" id="cnpj" placeholder="XX.XXX.XXX/XXXX-XX">
+                        <input type="number" class="form-control" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" required placeholder="XX.XXX.XXX/XXXX-XX">
+
+                        @if ($errors->has('cnpj'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('cnpj') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-row">
+                    <!-- EMAIL EMPRESA -->
                     <div class="form-group col-md-6">
-                        <label for="emailempresa">Email</label>
-                        <input type="email" class="form-control" id="emailempresa" placeholder="email@empresa.com">
+                        <label for="email_empresa">Email</label>
+                        <input type="email" class="form-control" id="email_empresa" name="email_empresa" value="{{ old('email_empresa') }}" required placeholder="email@empresa.com">
+
+                        @if ($errors->has('email_empresa'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email_empresa') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- TELEFONE 1 -->
                     <div class="form-group col-md-3">
-                        <label for="telefoneempresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefoneempresa" placeholder="(00)0000-0000">
+                        <label for="telefone_1_empresa">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{ old('telefone_1_empresa') }}" required placeholder="(00)0000-0000">
+
+                        @if ($errors->has('telefone_1_empresa'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('telefone_1_empresa') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- TELEFONE 2 -->
                     <div class="form-group col-md-3">
-                        <label for="telefone2">Telefone 2</label>
-                        <input type="tel" class="form-control" id="telefone2" placeholder="(00)00000-0000">
+                        <label for="telefone_2_empresa">Telefone 2</label>
+                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{ old('telefone_2_empresa') }}" required placeholder="(00)00000-0000">
+
+                        @if ($errors->has('telefone_2_empresa'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('telefone_2_empresa') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-row">
+                    <!-- CIDADE -->
                     <div class="form-group col-md-6">
                         <label for="cidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade">
+                        <input type="text" class="form-control" id="cidade" name="cidade" value="{{ old('cidade') }}" required placeholder="Nome da Cidade">
+
+                        @if ($errors->has('cidade'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('cidade') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- ESTADO -->
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <select id="estado" class="form-control">
+                        <select id="estado" name="estado" class="form-control" required>
                             <option value="">Selecione</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
@@ -69,10 +117,23 @@
                             <option value="SP">SP</option>
                             <option value="TO">TO</option>
                         </select>
+                        @if ($errors->has('estado'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('estado') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- CEP -->
                     <div class="form-group col-md-2">
                         <label for="cep">CEP</label>
-                        <input type="text" class="form-control" id="cep" placeholder="00000-000">
+                        <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}" required placeholder="00000-000">
+
+                        @if ($errors->has('cep'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('cep') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -81,59 +142,108 @@
             <div class="form-empresa">
                 <h3>Responsável</h3>
                 <div class="form-row">
+                    <!-- NOME RESPONSÁVEL -->
                     <div class="form-group col-md-6">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome Completo">
+                        <label for="nome_responsavel">Nome</label>
+                        <input type="text" class="form-control" id="nome_responsavel" name="nome_responsavel" value="{{ old('nome_responsavel') }}" required placeholder="Nome Completo">
+
+                        @if ($errors->has('nome_responsavel'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('nome_responsavel') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- CPF -->
                     <div class="form-group col-md-6">
                         <label for="cpf">CPF</label>
-                        <input type="number" class="form-control" id="cpf" placeholder="XXX.XXX.XXX-XX">
+                        <input type="number" class="form-control" id="cpf" name="cpf" value="{{ old('cpf') }}" required placeholder="XXX.XXX.XXX-XX">
+
+                        @if ($errors->has('cpf'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('cpf') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <div class="form-row">
+                    <!-- EMAIL DO RESPONSÁVEL -->
                     <div class="form-group col-md-6">
-                        <label for="emailresponsavel">Email</label>
-                        <input type="email" class="form-control" id="emailresponsavel" placeholder="email@email.com">
+                        <label for="email_responsavel">Email</label>
+                        <input type="email" class="form-control" id="email_responsavel" name="email_responsavel" value="{{ old('email_responsavel') }}" required placeholder="email@email.com">
+
+                        @if ($errors->has('email_responsavel'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('email_responsavel') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- TELEFONE RESPOSÁVEL -->
                     <div class="form-group col-md-3">
-                        <label for="telefoneresponsavel">Telefone</label>
-                        <input type="tel" class="form-control" id="telefoneresponsavel" placeholder="(00)0000-0000">
+                        <label for="telefone_responsavel">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_responsavel" name="telefone_responsavel" value="{{ old('telefone_responsavel') }}" placeholder="(00)0000-0000">
+
+                        @if ($errors->has('telefone_responsavel'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('telefone_responsavel') }}</strong>
+                            </span>
+                        @endif
                     </div>
+
+                    <!-- CELULAR RESPONSÁVEL -->
                     <div class="form-group col-md-3">
-                        <label for="celular">Celular</label>
-                        <input type="tel" class="form-control" id="celular" placeholder="(00)00000-0000">
+                        <label for="celular_responsavel">Celular</label>
+                        <input type="tel" class="form-control" id="celular_responsavel" name="celular_responsavel" value="{{ old('celular_responsavel') }}" required placeholder="(00)00000-0000">
+
+                        @if ($errors->has('celular_responsavel'))
+                            <span class="help-block">
+                                <strong>{{ $errors->first('celular_responsavel') }}</strong>
+                            </span>
+                        @endif
                     </div>
                 </div>
                 <fieldset class="form-group">
+                    <!-- GÊNERO -->
                     <div class="row">
                         <legend class="col-form-label col-sm-2 pt-0">Gênero</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="masculino" value="1" checked>
+                                <input class="form-check-input" type="radio" name="genero" id="masculino" value="1">
                                 <label class="form-check-label" for="masculino">
                                     Masculino
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="feminino" value="2">
+                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2">
                                 <label class="form-check-label" for="feminino">
                                     Feminino
                                 </label>
                             </div>
-                            <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="outro" value="3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="genero" id="outro" value="3">
                                 <label class="form-check-label" for="outro">
                                     Outro
                                 </label>
                             </div>
+
+                            @if ($errors->has('genero'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('genero') }}</strong>
+                            </span>
+                            @endif
                         </div>
                     </div>
                 </fieldset>
+
                 <div class="form-row">
+                    <!-- SENHA -->
                     <div class="form-group col-md-6">
                         <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Senha">
+                        <input type="password" class="form-control" id="senha" name="senha" value="{{ old('senha') }}" placeholder="Senha">
                     </div>
+
+                    <!-- CONFIRMAR SENHA -->
                     <div class="form-group col-md-6">
                         <label for="confimasenha">Confirme a senha</label>
                         <input type="password" class="form-control" id="confimasenha" placeholder="Confirmar a senha">

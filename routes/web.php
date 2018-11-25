@@ -25,3 +25,5 @@ Route::get('/editarcadastro', 'PagesController@editarCadastro');
 
 Route::resource('grupos', 'GruposController');
 Route::resource('sensores', 'SensoresController');
+
+Auth::routes();

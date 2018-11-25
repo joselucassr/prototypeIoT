@@ -26,10 +26,10 @@ class CreateUsersTable extends Migration
             $table->string('cep', 13);
             // PARTE DO RESPONSÁVEL
             $table->string('nome_responsavel', 255);
-            $table->string('cpf', 14);
-            $table->string('email_responsavel', 255);
-            $table->string('telefone_responsavel', 15);
-            $table->string('celular_responsavel', 15);
+            $table->string('cpf', 14)->unique();
+            $table->string('email_responsavel')->unique();
+            $table->string('telefone_responsavel', 15)->unique();
+            $table->string('celular_responsavel', 15)->unique();
             $table->integer('genero');
             $table->string('senha');
             $table->rememberToken();
