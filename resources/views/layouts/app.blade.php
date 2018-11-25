@@ -16,6 +16,7 @@
 </head>
 <body>
     @yield('navbar')
+    @include('inc.messages')
     @yield('content')
 
     <!-- Scripts bootstrap -->

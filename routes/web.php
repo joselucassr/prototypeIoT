@@ -22,3 +22,6 @@ Route::get('/adicionargrupo', 'PagesController@adicionarGrupo');
 Route::get('/configurarsensor', 'PagesController@configurarSensor');
 Route::get('/adicionarsensor', 'PagesController@adicionarSensor');
 Route::get('/editarcadastro', 'PagesController@editarCadastro');
+
+Route::resource('grupos', 'GruposController');
+Route::resource('sensores', 'SensoresController');
