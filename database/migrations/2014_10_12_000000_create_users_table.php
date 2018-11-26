@@ -31,7 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('telefone_responsavel', 15)->unique();
             $table->string('celular_responsavel', 15)->unique();
             $table->integer('genero');
-            $table->string('senha');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -63,8 +63,8 @@ class RegisterController extends Controller
             'email_responsavel' => 'required|string|email|max:255|unique:users',
             'telefone_responsavel' => 'required|string|max:15|unique:users',
             'celular_responsavel' => 'required|string|max:15|unique:users',
-            'genero' => 'required|string|max:11|unique:users',
-            'senha' => 'required|string|min:6|confirmed',
+            'genero' => 'required|string|max:11',
+            'password' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -91,7 +91,7 @@ class RegisterController extends Controller
             'telefone_responsavel' => $data['telefone_responsavel'],
             'celular_responsavel' => $data['celular_responsavel'],
             'genero' => $data['genero'],
-            'senha' => bcrypt($data['senha']),
+            'password' => bcrypt($data['password']),
         ]);
     }
 }

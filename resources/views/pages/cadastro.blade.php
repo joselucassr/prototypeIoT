@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h2 class="text-center">Cadastro</h2>
-        <form method="POST" action="/register">
+        <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
             <!-- Empresa -->
@@ -240,13 +240,13 @@
                     <!-- SENHA -->
                     <div class="form-group col-md-6">
                         <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="senha" value="{{ old('senha') }}" placeholder="Senha">
+                        <input type="password" class="form-control" id="senha" name="password" value="{{ old('senha') }}" placeholder="Senha">
                     </div>
 
                     <!-- CONFIRMAR SENHA -->
                     <div class="form-group col-md-6">
                         <label for="confimasenha">Confirme a senha</label>
-                        <input type="password" class="form-control" id="confimasenha" placeholder="Confirmar a senha">
+                        <input type="password" class="form-control" id="confimasenha" name="password_confirmation" placeholder="Confirmar a senha">
                     </div>
                 </div>
             </div>
