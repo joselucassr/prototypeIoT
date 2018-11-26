@@ -292,6 +292,7 @@ class ComposerStaticInit24a0da5bdaa5252ab6fa195a4f8fc2b1
     );
 
     public static $classMap = array (
+        'AddUserIdToGrupos' => __DIR__ . '/../..' . '/database/migrations/2018_11_25_225255_add_user_id_to_grupos.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Dado' => __DIR__ . '/../..' . '/app/Dado.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',

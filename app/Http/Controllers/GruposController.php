@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Grupo;
@@ -9,14 +10,25 @@ use App\Grupo;
 class GruposController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        $grupos = Grupo::all();
-        return view('grupos.index') -> with('grupos', $grupos);
+        $user_id = auth() -> user() -> id;
+        $user = User::find($user_id);
+        return view('grupos.index') -> with('grupos', $user -> grupos);
     }
 
     /**
@@ -45,6 +57,7 @@ class GruposController extends Controller
         $grupo = new Grupo;
         $grupo -> nome = $request -> input('nome');
         $grupo -> obs = $request -> input('obs');
+        $grupo -> user_id = auth() -> user() -> id;
         $grupo -> save();
 
         return redirect('/grupos') -> with('success', 'Grupo criado');

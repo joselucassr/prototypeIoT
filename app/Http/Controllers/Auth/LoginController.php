@@ -41,4 +41,9 @@ class LoginController extends Controller
     {
         return 'email_responsavel';
     }
+
+    public function showLoginForm()
+    {
+        return view('pages.index');
+    }
 }

@@ -26,4 +26,8 @@ class User extends Authenticatable
     protected $hidden = [
         'senha', 'remember_token',
     ];
+
+    public function grupos(){
+        return $this -> hasMany('App\Grupo');
+    }
 }
