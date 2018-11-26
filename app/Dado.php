@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dado extends Model
 {
-    //
+    public function user(){
+        return $this -> belongsTo('App\Sensor');
+    }
 }

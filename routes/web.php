@@ -14,7 +14,6 @@
 Route::get('/', 'PagesController@index');
 
 Route::get('/painelgeral', 'PagesController@painelgeral');
-Route::get('/sensores', 'PagesController@sensores');
 Route::get('/sensor', 'PagesController@sensor');
 Route::get('/cadastro', 'PagesController@cadastro');
 Route::get('/editargrupo', 'PagesController@editarGrupo');

@@ -14,9 +14,6 @@ class PagesController extends Controller
         return view('pages.painelgeral');
     }
 
-    public function sensores(){
-        return view('pages.sensores');
-    }
 
     public function sensor(){
         return view('pages.sensor');
