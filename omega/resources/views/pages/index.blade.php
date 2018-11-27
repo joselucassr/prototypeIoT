@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="col-6 mx-auto formCard">
+    <div class="col-md-6 col-sm-10 mx-auto formCard">
         <h1 class="col-12">Login</h1>
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
