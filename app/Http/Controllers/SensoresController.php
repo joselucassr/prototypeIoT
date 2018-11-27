@@ -15,7 +15,7 @@ class SensoresController extends Controller
      */
     public function index()
     {
-        $grupo_id = Grupo::where('')
+        $grupo_id = Grupo::where('');
         return view('sensores.index');
 
     }
