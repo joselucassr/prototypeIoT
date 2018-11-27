@@ -8,6 +8,16 @@ div.corpo a:hover{
     text-decoration: none;
 }
 
+a.gray-link{
+    color: rgba(0,0,0,.50);
+    text-decoration: none;
+}
+
+    a.gray-link:hover{
+        text-decoration: none;
+        color: rgba(0,0,0,.75);
+    }
+
 .titulo{
     color: #4b4b4b;
     font-family: 'Montserrat', sans-serif;
