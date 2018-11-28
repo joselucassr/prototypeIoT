@@ -25,7 +25,7 @@
                     <!-- CNPJ -->
                     <div class="form-group col-md-6">
                         <label for="cnpj">CNPJ</label>
-                        <input type="number" class="form-control" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" required placeholder="XX.XXX.XXX/XXXX-XX">
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" data-mask="00.000.000/0000-00"    required placeholder="00.000.000/0000-00">
 
                         @if ($errors->has('cnpj'))
                             <span class="help-block">
@@ -50,7 +50,7 @@
                     <!-- TELEFONE 1 -->
                     <div class="form-group col-md-3">
                         <label for="telefone_1_empresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{ old('telefone_1_empresa') }}" required placeholder="(00)0000-0000">
+                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{ old('telefone_1_empresa') }}" data-mask="(00) 0000-0000" required placeholder="(00) 0000-0000">
 
                         @if ($errors->has('telefone_1_empresa'))
                             <span class="help-block">
@@ -61,8 +61,8 @@
 
                     <!-- TELEFONE 2 -->
                     <div class="form-group col-md-3">
-                        <label for="telefone_2_empresa">Telefone 2</label>
-                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{ old('telefone_2_empresa') }}" required placeholder="(00)00000-0000">
+                        <label for="telefone_2_empresa">Celular</label>
+                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{ old('telefone_2_empresa') }}" data-mask="(00) 00000-0000" required placeholder="(00) 00000-0000">
 
                         @if ($errors->has('telefone_2_empresa'))
                             <span class="help-block">
@@ -127,7 +127,7 @@
                     <!-- CEP -->
                     <div class="form-group col-md-2">
                         <label for="cep">CEP</label>
-                        <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}" required placeholder="00000-000">
+                        <input type="text" class="form-control" id="cep" name="cep" value="{{ old('cep') }}"  data-mask="00000-000" required placeholder="00000-000">
 
                         @if ($errors->has('cep'))
                             <span class="help-block">
@@ -157,7 +157,7 @@
                     <!-- CPF -->
                     <div class="form-group col-md-6">
                         <label for="cpf">CPF</label>
-                        <input type="number" class="form-control" id="cpf" name="cpf" value="{{ old('cpf') }}" required placeholder="XXX.XXX.XXX-XX">
+                        <input type="text" class="form-control" id="cpf" name="cpf" value="{{ old('cpf') }}" data-mask="000.000.000-00"  required placeholder="000.000.000-00">
 
                         @if ($errors->has('cpf'))
                             <span class="help-block">
@@ -182,7 +182,7 @@
                     <!-- TELEFONE RESPOSÁVEL -->
                     <div class="form-group col-md-3">
                         <label for="telefone_responsavel">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_responsavel" name="telefone_responsavel" value="{{ old('telefone_responsavel') }}" placeholder="(00)0000-0000">
+                        <input type="tel" class="form-control" id="telefone_responsavel" name="telefone_responsavel" value="{{ old('telefone_responsavel') }}" data-mask="(00) 0000-0000" placeholder="(00)0000-0000">
 
                         @if ($errors->has('telefone_responsavel'))
                             <span class="help-block">
@@ -194,7 +194,7 @@
                     <!-- CELULAR RESPONSÁVEL -->
                     <div class="form-group col-md-3">
                         <label for="celular_responsavel">Celular</label>
-                        <input type="tel" class="form-control" id="celular_responsavel" name="celular_responsavel" value="{{ old('celular_responsavel') }}" required placeholder="(00)00000-0000">
+                        <input type="tel" class="form-control" id="celular_responsavel" name="celular_responsavel" value="{{ old('celular_responsavel') }}" data-mask="(00) 00000-0000" required placeholder="(00)00000-0000">
 
                         @if ($errors->has('celular_responsavel'))
                             <span class="help-block">

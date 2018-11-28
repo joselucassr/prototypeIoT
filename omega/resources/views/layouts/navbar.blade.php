@@ -30,11 +30,6 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                     @else
-                        <li>
-                            <a href="#" class="nav-link">
-                                Usuário: {{ Auth::user()->nome_empresa }}
-                            </a>
-                        </li>
                          <li>
                             <a class="nav-link" href="{{ route('logout') }}"
                                onclick="event.preventDefault();

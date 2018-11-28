@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container mx-auto" style="margin-top: ;: 20px;">
+    <div class="container mx-auto" style="margin-top:;: 20px;">
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
             <form>
