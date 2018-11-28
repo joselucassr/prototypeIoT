@@ -32,6 +32,17 @@ class GruposController extends Controller
     }
 
     /**
+     * Esse vai mostrar os grupos só que em lista
+     * */
+
+    public function gruposlista()
+    {
+        $user_id = auth() -> user() -> id;
+        $user = User::find($user_id);
+        return view('grupos.grupoLista') -> with('grupos', $user -> grupos);
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

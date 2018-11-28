@@ -30,13 +30,8 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                     @else
-                        <li>
-                            <a href="#" class="nav-link">
-                                Usuário: {{ Auth::user()->nome_empresa }}
-                            </a>
-                        </li>
                          <li>
-                            <a class="nav-link" href="{{ route('logout') }}"
+                            <a class="btn btn-outline-danger" style="border: none" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">
                                 <i class="fas fa-power-off"></i>
