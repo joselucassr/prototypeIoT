@@ -1,4 +1,8 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto+Condensed:700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300');
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
 
 div.corpo a.link{
     text-decoration: none;
@@ -6,6 +10,17 @@ div.corpo a.link{
 
 div.corpo a:hover{
     text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-radius: 1em;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 1em;
+    border-bottom: 2px solid white;
 }
 
 a.gray-link{
