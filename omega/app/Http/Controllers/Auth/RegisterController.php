@@ -94,4 +94,9 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function edit($id){
+        $user = User::find($id);
+        return view('pages.editarCadastro') -> with('user', $user);
+    }
 }

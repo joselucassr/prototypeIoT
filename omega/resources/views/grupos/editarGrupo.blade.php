@@ -3,7 +3,7 @@
 @section('content')
     <!-- Formulário -->
 
-    <div class="container" style="margin-top: ;: 20px;">
+    <div class="container" style="margin-top:20px;">
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
             <div class="row">

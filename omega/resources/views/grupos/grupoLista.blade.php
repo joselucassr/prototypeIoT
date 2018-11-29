@@ -1,8 +1,8 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container col-12">
-        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50);">
+    <div class="container col-12" style="padding-bottom: 30px;">
+        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); padding-top: 20px;">
             <div class="col-2" style="margin-right: 15px">
                 <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>
             </div>
@@ -14,7 +14,7 @@
         @if (count($grupos) > 0)
                 <div class="col-12" style="margin-top: 20px">
                     <div class="col-12">
-                        <table class="table table-striped text-center">
+                        <table class="table table-striped text-center table-responsive-lg">
                             <thead>
                             <tr>
                                 <th scope="col">Nome</th>

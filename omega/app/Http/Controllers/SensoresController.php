@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grupo;
+use App\Sensor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,8 +16,10 @@ class SensoresController extends Controller
      */
     public function index()
     {
-        $grupo_id = Grupo::where('');
-        return view('sensores.index');
+        $grupo_id = Grupo::with('sensores')->get()->id;
+        //$grupo_id = grupo() -> id;
+        $grupo = Grupo::find($grupo_id);
+        return view('sensores.index')-> with('sensores', $grupo -> sensores);
 
     }
 

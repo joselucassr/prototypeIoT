@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container col-12">
-        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50);">
+        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); padding-bottom: 30px">
             <div class="col-2" style="margin-right: 15px">
                 <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>
             </div>

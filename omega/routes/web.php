@@ -15,7 +15,6 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/painelgeral', 'PagesController@painelgeral');
 Route::get('/sensor', 'PagesController@sensor');
-Route::get('/sensores', 'PagesController@sensores');
 Route::get('/cadastro', 'PagesController@cadastro');
 Route::get('/editargrupo', 'PagesController@editarGrupo');
 Route::get('/adicionargrupo', 'PagesController@adicionarGrupo');
@@ -26,7 +25,9 @@ Route::get('/gruposlista', 'GruposController@gruposlista');
 
 Route::resource('grupos', 'GruposController');
 
+Route::resource('/register', 'Auth\RegisterController');
+Route::resource('/sensores', 'SensoresController');
 
-Route::get('/register', 'RegisterController@store');
+//Route::get('/register', 'RegisterController@store');
 
 Auth::routes();

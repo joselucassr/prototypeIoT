@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#">Relatório</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/editarcadastro">Meus Dados</a>
+                    <a class="nav-link" href="/register/{{ Auth::user()->id }}/edit">Meus Dados</a>
                 </li>
             </ul>
             <div class="float-right row" style="padding-right: 20px">
