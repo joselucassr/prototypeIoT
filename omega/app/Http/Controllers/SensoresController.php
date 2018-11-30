@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Grupo;
+use App\Sensor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -13,10 +14,10 @@ class SensoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        $grupo_id = Grupo::where('');
-        return view('sensores.index');
+        $grupo = Grupo::find($id);
+        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id]);
 
     }
 
@@ -25,9 +26,9 @@ class SensoresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        return view('sensores.adicionarSensor') -> with('id', $id);
     }
 
     /**
@@ -38,7 +39,23 @@ class SensoresController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this -> validate($request, [
+            'nome' => 'required'
+        ]);
+
+        // Criar Sensor
+        $sensor = new Sensor;
+        $sensor -> nome = $request -> input('nome');
+        $sensor -> id = $request -> input('id');
+        $sensor -> tempmax = $request -> input('tempmax');
+        $sensor -> tempmin = $request -> input('tempmin');
+        $sensor -> obs = $request -> input('obs');
+        $sensor -> grupo_id = $request -> input('grupo_id');
+        $sensor -> save();
+
+        $id = $sensor -> grupo_id = $request -> input('grupo_id');
+
+        return redirect('/sensores/'.$id) -> with('success', 'Sensor criado');
     }
 
     /**
@@ -60,7 +77,8 @@ class SensoresController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sensor = Sensor::find($id);
+        return view('sensores.configurarSensor') -> with('sensor', $sensor);
     }
 
     /**
@@ -72,7 +90,23 @@ class SensoresController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this -> validate($request, [
+            'nome' => 'required'
+        ]);
+
+        // Atualizar Sensor
+        $sensor = Sensor::find($id);
+        $sensor -> nome = $request -> input('nome');
+        $sensor -> id = $request -> input('id');
+        $sensor -> tempmax = $request -> input('tempmax');
+        $sensor -> tempmin = $request -> input('tempmin');
+        $sensor -> obs = $request -> input('obs');
+        $sensor -> grupo_id = $request -> input('grupo_id');
+        $sensor -> save();
+
+        $id = $sensor -> grupo_id = $request -> input('grupo_id');
+
+        return redirect('/sensores/'.$id) -> with('success', 'Sensor Atualizado');
     }
 
     /**
@@ -81,8 +115,13 @@ class SensoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request,$id)
     {
-        //
+        $sensor = Sensor::find($id);
+        $sensor -> delete();
+
+        $id = $sensor -> grupo_id = $request -> input('grupo_id');
+
+        return redirect('/sensores/'.$id) -> with ('success', 'Grupo Apagado');
     }
 }

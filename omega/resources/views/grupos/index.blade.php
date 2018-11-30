@@ -50,7 +50,7 @@
                                 </table>
                             </div>
                             <div class="text-right col-12" style="margin-top: -10px">
-                                <a href="/sensores" class="gray-link">Veja seus sensores</a>
+                                <a href="/sensores/{{$grupo -> id}}/" class="gray-link">Veja seus sensores</a>
                             </div>
                         </div>
                 @endforeach
