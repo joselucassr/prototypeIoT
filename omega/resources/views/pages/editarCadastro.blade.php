@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 50px">
         <h2 class="text-center">Editar Cadastro</h2>
         <form>
             <!-- Empresa -->
@@ -139,7 +139,7 @@
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-outline-primary">Salvar</button>
+            <button type="submit" class="btn btn-outline-primary float-right">Salvar</button>
         </form>
     </div>
 @endsection

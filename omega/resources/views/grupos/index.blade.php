@@ -1,8 +1,8 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container col-12">
-        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50);">
+    <div class="container col-12" style="padding-bottom: 50px">
+        <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); margin-top: 20px; margin-bottom: 30px">
             <div class="col-2" style="margin-right: 15px">
                 <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>
             </div>
@@ -10,11 +10,11 @@
                 <a href="/gruposlista" class="gray-link"><i class="fas fa-list-ul"></i></a>
             </div>
         </div>
-        <div class="row col-12" style="padding-top: 20px;">
+        <div class="row col-12 mx-auto" style="padding: 0;">
             @if (count($grupos) > 0)
                 @foreach ($grupos as $grupo)
                      <!-- Card Novo -->
-                        <div class="card-container col-md-4" style="margin-top: 20px">
+                        <div class="card-container col-md-4" style="margin-bottom: 30px">
                             <div class="row col-12">
                                 <div class="text-left col-8">
                                     <h3>{{$grupo -> nome}}</h3>

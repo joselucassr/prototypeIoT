@@ -1,9 +1,10 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container mx-auto" style="margin-top: ;: 20px;">
+    <div class="container mx-auto" style="margin-top: 50px;">
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
+            <div class="row">
                 <div class="col-10">
                     <h3>Editar Sensor</h3>
                 </div>
@@ -40,7 +41,7 @@
                 </div>
                 {{ Form::hidden('grupo_id', $sensor -> grupo_id)}}
                 {{Form::hidden('_method', 'PUT')}}
-                {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary'])}}
+                {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary float-right'])}}
             {!! Form::close() !!}
         </div>
     </div>

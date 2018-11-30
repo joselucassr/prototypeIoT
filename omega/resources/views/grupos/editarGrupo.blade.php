@@ -3,7 +3,7 @@
 @section('content')
     <!-- Formulário -->
 
-    <div class="container" style="margin-top: ;: 20px;">
+    <div class="container" style="margin-top: 50px;">
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
             <div class="row">
@@ -27,7 +27,7 @@
                 {{Form::textarea('obs', $grupo -> obs, ['class' => 'form-control', 'rows' => '3'])}}
             </div>
             {{Form::hidden('_method', 'PUT')}}
-            {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary'])}}
+            {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary float-right'])}}
             {!! Form::close() !!}
         </div>
     </div>

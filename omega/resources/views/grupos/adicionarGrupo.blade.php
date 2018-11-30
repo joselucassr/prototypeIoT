@@ -14,7 +14,7 @@
                     {{Form::label('obs', 'Observações')}}
                     {{Form::textarea('obs', '', ['class' => 'form-control', 'rows' => '3'])}}
                 </div>
-                {{Form::submit('Adicionar', ['class' => 'btn btn-outline-primary'])}}
+                {{Form::submit('Adicionar', ['class' => 'btn btn-outline-primary float-right'])}}
             {!! Form::close() !!}
         </div>
     </div>

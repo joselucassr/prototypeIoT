@@ -26,12 +26,14 @@
                     </span>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
-            <a href="/cadastro" class="btn btn-success float-right">Registrar</a>
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    Esqueceu a senha?
-                </a>
+            <button type="submit" class="btn btn-primary float-right">Login</button>
+            <a href="/cadastro" class="btn btn-success float-left">Registrar</a>
         </form>
+        <div class="">
+            <a class="btn btn-link" href="{{ route('password.request') }}">
+                Esqueceu a senha?
+            </a>
+        </div>
     </div>
 </div>
 @endsection
