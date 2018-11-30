@@ -6,6 +6,7 @@
             @if (count($data['sensores']) > 0)
                 @foreach ($data['sensores'] as $sensor)
                     <!-- Card Personalizado -->
+                    <?php ?>
                     <div class="container-fluid col-md-4" style="padding-bottom: 50px">
                         <div class="row">
                             <div class="col-6">{{$sensor -> nome}}</div>

@@ -94,7 +94,12 @@ class GruposController extends Controller
     public function edit($id)
     {
         $grupo = Grupo::find($id);
-        return view('grupos.editarGrupo') -> with('grupo', $grupo);
+
+        // Check for correct user
+        if (auth() -> user() -> id !== $grupo -> user_id){
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
+            return view('grupos.editarGrupo') -> with('grupo', $grupo);
     }
 
     /**
@@ -128,6 +133,12 @@ class GruposController extends Controller
     public function destroy($id)
     {
         $grupo = Grupo::find($id);
+
+        // Check for correct user
+        if (auth() -> user() -> id !== $grupo -> user_id){
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
+
         $grupo -> delete();
         return redirect('/grupos') -> with ('success', 'Grupo Apagado');
     }
