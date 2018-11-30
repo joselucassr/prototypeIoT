@@ -31,6 +31,10 @@ Route::get('/gruposlista', 'GruposController@gruposlista');
 
 Route::resource('grupos', 'GruposController');
 
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
 
 Route::get('/register', 'RegisterController@store');
 

@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index(){
+        if (auth() -> user()){
+            return redirect('/grupos');
+        }
         return view('pages.index');
     }
 
