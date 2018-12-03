@@ -26,8 +26,8 @@
                             </div>
                         </div>
                             <div class="corpo">
-                                <div id="container" class="col-12">
-
+                                <div id="sensor{{$sensor -> id}}" class="col-12 mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
+                                <!-- AQUI FICA O GRÁFICO -->
                                 </div>
                                 <div class="row">
                                     <div class="col-6">
@@ -37,6 +37,7 @@
                                 </div>
                             </div>
                     </div>
+                    @include('../inc/graficoRadial')
                 @endforeach
             @else
                 <div class="alert alert-info col-12 text-center mx-auto" role="alert">
@@ -50,38 +51,5 @@
 
 
 @section('scripts')
-    <script>
-        var ProgressBar = require('progressbar.js')
-        var bar = new ProgressBar.SemiCircle(container, {
-            strokeWidth: 6,
-            color: '#FFEA82',
-            trailColor: '#eee',
-            trailWidth: 1,
-            easing: 'easeInOut',
-            duration: 1400,
-            svgStyle: null,
-            text: {
-                value: '',
-                alignToBottom: false
-            },
-            from: {color: '#FFEA82'},
-            to: {color: '#ED6A5A'},
-            // Set default step function for all animate calls
-            step: (state, bar) => {
-                bar.path.setAttribute('stroke', state.color);
-                var value = Math.round(bar.value() * 100);
-                if (value === 0) {
-                    bar.setText('');
-                } else {
-                    bar.setText(value);
-                }
-
-                bar.text.style.color = state.color;
-            }
-        });
-        bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-        bar.text.style.fontSize = '2rem';
-
-        bar.animate(0.8);  // Number from 0.0 to 1.0
-    </script>
+    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
 @endsection

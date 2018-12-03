@@ -13,6 +13,8 @@
 
 
     <title>{{ config('app.name', 'IoT Prototype') }}</title>
+
+    @yield('scripts')
 </head>
 <body>
     @yield('navbar')
@@ -20,12 +22,10 @@
     @yield('content')
 
     <!-- Scripts bootstrap -->
-    <script src="{{asset('js/app.js')}}"></script>
     <script src="{{ asset('js/jquery-3.3.1.slim.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
     <script src="{{ asset('js/popper.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('js/require.js') }}"></script>
-    @yield('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
