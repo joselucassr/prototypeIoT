@@ -29,7 +29,6 @@
                             </thead>
                             <tbody>
             @foreach ($grupos as $grupo)
-                <!-- Table Novo -->
                                 <tr>
                                     <td>{{$grupo -> nome}}</td>
                                     <td>6</td>
@@ -38,7 +37,7 @@
                                     <td>0</td>
                                     <td>Ativo</td>
                                     <td><a href="/grupos/{{$grupo -> id}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog"></i></a></td>
-                                    <td><a href="#" class="gray-link"><i class="fas fa-arrow-right"></a></i></td>
+                                    <td><a href="/sensores/{{$grupo -> id}}/" class="gray-link"><i class="fas fa-arrow-right"></i></a></td>
                                 </tr>
                 @endforeach
                                 </tbody>

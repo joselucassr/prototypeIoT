@@ -17,6 +17,7 @@ Route::get('/painelgeral', 'PagesController@painelgeral');
 Route::get('/sensor', 'PagesController@sensor');
 Route::get('/sensores/{id}', 'SensoresController@index');
 Route::post('/sensores', 'SensoresController@store');
+Route::get('/sensores/{id}/lista', 'SensoresController@sensoreslista');
 Route::get('/sensores/{id}/create', 'SensoresController@create');
 Route::get('/sensor/{id}/edit', 'SensoresController@edit');
 Route::put('/sensor/{id}', 'SensoresController@update');

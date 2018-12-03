@@ -30,14 +30,29 @@ class SensoresController extends Controller
     {
         $grupo = Grupo::find($id);
 
-        $dados = Sensor::with('dados') -> get();
+        // Check for correct user
+        if (auth() -> user() -> id !== $grupo -> user_id){
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
+
+        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo]);
+
+    }
+
+    /**
+     * Esse deve mostrar os sensores em lista
+     */
+
+    public function sensoreslista($id)
+    {
+        $grupo = Grupo::find($id);
 
         // Check for correct user
         if (auth() -> user() -> id !== $grupo -> user_id){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
 
-        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'dados' => $dados]);
+        return view('sensores.sensoresLista') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo]);
 
     }
 
@@ -140,7 +155,7 @@ class SensoresController extends Controller
 
         $id = $sensor -> grupo_id = $request -> input('grupo_id');
 
-        return redirect('/sensores/'.$id) -> with('success', 'Página não autorizada');
+        return redirect('/sensores/'.$id) -> with('success', 'Sensor Modificado');
     }
 
     /**
