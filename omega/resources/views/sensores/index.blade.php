@@ -14,7 +14,6 @@
             @if (count($data['sensores']) > 0)
                 @foreach ($data['sensores'] as $sensor)
                     <!-- Card Personalizado -->
-                    <?php ?>
                     <div class="container-fluid col-md-4" style="padding-bottom: 50px">
                         <div class="row">
                             <div class="col-6">{{$sensor -> nome}}</div>
@@ -25,17 +24,19 @@
                                 <a class="gray-link" href="/sensor/{{$sensor -> id}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
                             </div>
                         </div>
-                        <div class="corpo">
-                            <div class="col-12">
-                                <h1>10 °C</h1>
-                            </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <i class="fas fa-battery-full iconBateria"></i>
+                        @foreach ($data['dados'] as $dado)
+                            <div class="corpo">
+                                <div class="col-12">
+                                    <h1>{{$dado -> temperatura}}</h1>
                                 </div>
-                                <div class="col-6"><p class="hora">13/11/2018 14:30:15</p></div>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <i class="fas fa-battery-full iconBateria"></i>
+                                    </div>
+                                    <div class="col-6"><p class="hora">13/11/2018 14:30:15</p></div>
+                                </div>
                             </div>
-                        </div>
+                        @endforeach
                     </div>
                 @endforeach
             @else

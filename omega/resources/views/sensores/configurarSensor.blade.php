@@ -9,7 +9,7 @@
                     <h3>Editar Sensor</h3>
                 </div>
                 <div class="col-2">
-                    {!! Form::open(['action' => ['SensoresController@destroy', $sensor -> id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                    {!! Form::open(['action' => ['SensoresController@destroy', $sensor -> id], 'method' => 'POST', 'class' => 'float-right', 'onclick' => "return confirm('Você tem certeza que quer REMOVER esse sensor?');"]) !!}
                         {{Form::hidden('_method', 'DELETE')}}
                         {{ Form::hidden('grupo_id', $sensor -> grupo_id)}}
                         {{Form::button('<i class="fas fa-trash-alt"></i>', ['class' => 'btn btn-danger', 'type' => 'submit'])}}

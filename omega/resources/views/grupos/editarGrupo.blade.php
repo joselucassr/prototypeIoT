@@ -11,7 +11,7 @@
                     <h3>Editar Grupo</h3>
                 </div>
                 <div class="col-2">
-                    {!! Form::open(['action' => ['GruposController@destroy', $grupo -> id], 'method' => 'POST', 'class' => 'float-right']) !!}
+                    {!! Form::open(['action' => ['GruposController@destroy', $grupo -> id], 'method' => 'POST', 'class' => 'float-right', 'onclick' => "return confirm('Você tem certeza que quer REMOVER esse grupo?');"]) !!}
                         {{Form::hidden('_method', 'DELETE')}}
                         {{Form::button('<i class="fas fa-trash-alt"></i>', ['class' => 'btn btn-danger', 'type' => 'submit'])}}
                     {!! Form::close() !!}
