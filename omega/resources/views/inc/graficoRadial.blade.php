@@ -11,7 +11,7 @@
             value: '',
             alignToBottom: true
         },
-        from: {color: '#FFEA82'},
+        from: {color: '#11ffee'},
         to: {color: '#ED6A5A'},
         // Set default step function for all animate calls
         step: (state, bar) => {
@@ -20,7 +20,7 @@
             if (value === 0) {
                 bar.setText('');
             } else {
-                bar.setText(value);
+                bar.setText(value - 50);
             }
 
             bar.text.style.color = state.color;
@@ -29,6 +29,6 @@
     bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
     bar.text.style.fontSize = '2rem';
 
-    bar.animate({{$dado -> temperatura }});  // Number from 0.0 to 1.0
+    bar.animate({{0.5 + (($sensor -> temperatura) / 100)}});  // Number from 0.0 to 1.0
 
 </script>
