@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container">
+    <div class="container" style="margin-top: 50px">
         <h2 class="text-center">Cadastro</h2>
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}

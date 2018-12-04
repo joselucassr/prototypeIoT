@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Dado;
 use App\Grupo;
 use App\Sensor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class SensoresController extends Controller
 {
@@ -34,8 +36,11 @@ class SensoresController extends Controller
         if (auth() -> user() -> id !== $grupo -> user_id){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
+        $sensor = Sensor::where('grupo_id', $id);
+        $sensor_id = $sensor -> id;
+        $dado = Dado::where('sensor_id', $sensor_id);
 
-        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo]);
+        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo, 'dados' => $sensor_id -> dados()]);
 
     }
 

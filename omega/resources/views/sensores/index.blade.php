@@ -26,6 +26,7 @@
                             </div>
                         </div>
                             <div class="corpo">
+                                @foreach ($data['dados'] as $dado)
                                 <div id="sensor{{$sensor -> id}}" class="col-12 mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
                                 <!-- AQUI FICA O GRÁFICO -->
                                 </div>
@@ -35,9 +36,11 @@
                                     </div>
                                     <div class="col-6"><p class="hora">13/11/2018 14:30:15</p></div>
                                 </div>
+                                    <?php echo $data['dados']; ?>
+                                @include('../inc/graficoRadial')
+                                @endforeach
                             </div>
                     </div>
-                    @include('../inc/graficoRadial')
                 @endforeach
             @else
                 <div class="alert alert-info col-12 text-center mx-auto" role="alert">

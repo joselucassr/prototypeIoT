@@ -14,7 +14,7 @@
             @if (count($grupos) > 0)
                 @foreach ($grupos as $grupo)
                      <!-- Card Novo -->
-                        <div class="card-container col-md-4" style="margin-bottom: 30px">
+                        <div class="container-fluid col-md-4" style="margin-bottom: 30px">
                             <div class="row col-12">
                                 <div class="text-left col-8">
                                     <h3>{{$grupo -> nome}}</h3>
