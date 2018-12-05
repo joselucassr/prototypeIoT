@@ -8,6 +8,7 @@ use App\Sensor;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class SensoresController extends Controller
 {
@@ -109,7 +110,9 @@ class SensoresController extends Controller
      */
     public function show($id)
     {
-        //
+        $sensor = Sensor::find($id);
+
+        return view('sensores.sensor') -> with('sensor', $sensor);
     }
 
     /**
@@ -159,6 +162,22 @@ class SensoresController extends Controller
 
         return redirect('/sensores/'.$id) -> with('success', 'Sensor Modificado');
     }
+
+    /*
+     * Essa função é tipo a de cima mas para um único sensor apenas
+     */
+
+    public function updateSensor(Request $request, $id)
+    {
+
+        // Atualizar Sensor
+        $sensor = Sensor::find($id);
+        $sensor -> obs = $request -> input('obs');
+        $sensor -> save();
+
+        return Redirect::back() -> with('success', 'Sensor Modificado');
+    }
+
 
     /**
      * Remove the specified resource from storage.

@@ -1,45 +1,47 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container" style="margin-top: 50px">
+    <div class="container" style="margin-top: 50px; padding-bottom: 75px;">
         <h2 class="text-center">Editar Cadastro</h2>
-        <form>
+            {!! Form::open(['action' => ['PagesController@update', auth() -> user() -> id], 'method' => 'POST']) !!}
+
+
             <!-- Empresa -->
             <div class="form-empresa">
                 <h3>Empresa</h3>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="nomeempresa">Nome Empresa</label>
-                        <input type="text" class="form-control" id="nomeempresa" placeholder="Nome da empresa">
+                        <input type="text" class="form-control" id="nome_empresa" name="nome_empresa" value="{{auth() -> user() -> nome_empresa}}" placeholder="Nome da empresa">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cnpj">CNPJ</label>
-                        <input type="number" class="form-control" id="cnpj" placeholder="XX.XXX.XXX/XXXX-XX">
+                        <input type="number" class="form-control" id="cnpj" name="cnpj" value="{{auth() -> user() -> cnpj}}" data-mask="00.000.000/0000-00" placeholder="00.000.000/0000-00">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="emailempresa">Email</label>
-                        <input type="email" class="form-control" id="emailempresa" placeholder="email@empresa.com">
+                        <label for="email_empresa">Email</label>
+                        <input type="email" class="form-control" id="email_empresa" name="email_empresa" value="{{auth() -> user() -> email_empresa}}" placeholder="email@empresa.com">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="telefoneempresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefoneempresa" placeholder="(00)0000-0000">
+                        <label for="telefone_1_empresa">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{auth() -> user() -> telefone_1_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="telefone2">Telefone 2</label>
-                        <input type="tel" class="form-control" id="telefone2" placeholder="(00)00000-0000">
+                        <label for="telefone_2_empresa">Telefone 2</label>
+                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{auth() -> user() -> telefone_2_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 00000-0000">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
                         <label for="cidade">Cidade</label>
-                        <input type="text" class="form-control" id="cidade">
+                        <input type="text" class="form-control" id="cidade" name="cidade" value="{{auth() -> user() -> cidade}}">
                     </div>
                     <div class="form-group col-md-4">
                         <label for="estado">Estado</label>
-                        <select id="estado" class="form-control">
-                            <option value="">Selecione</option>
+                        <select id="estado" class="form-control" name="estado">
+                            <option value="{{auth() -> user() -> estado}}">{{auth() -> user() -> estado}}</option>
                             <option value="AC">AC</option>
                             <option value="AL">AL</option>
                             <option value="AM">AM</option>
@@ -71,7 +73,7 @@
                     </div>
                     <div class="form-group col-md-2">
                         <label for="cep">CEP</label>
-                        <input type="text" class="form-control" id="cep" placeholder="00000-000">
+                        <input type="text" class="form-control" id="cep" value="{{auth() -> user() -> cep}}" name="cep" data-mask="00000-000" placeholder="00000-000">
                     </div>
                 </div>
             </div>
@@ -81,26 +83,26 @@
                 <h3>Responsável</h3>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="nome">Nome</label>
-                        <input type="text" class="form-control" id="nome" placeholder="Nome Completo">
+                        <label for="nome_responsavel">Nome</label>
+                        <input type="text" class="form-control" id="nome_responsavel" value="{{auth() -> user() -> nome_responsavel}}" name="nome_responsavel" placeholder="Nome Completo">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cpf">CPF</label>
-                        <input type="number" class="form-control" id="cpf" placeholder="XXX.XXX.XXX-XX">
+                        <input type="text" class="form-control" id="cpf" value="{{auth() -> user() -> cpf}}" name="cpf" data-mask="000.000.000-00" placeholder="000.000.000-00">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="emailresponsavel">Email</label>
-                        <input type="email" class="form-control" id="emailresponsavel" placeholder="email@email.com">
+                        <label for="email_responsavel">Email</label>
+                        <input type="email" class="form-control" id="email_responsavel" value="{{auth() -> user() -> email_responsavel}}" name="email_responsavel" placeholder="email@email.com">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="telefoneresponsavel">Telefone</label>
-                        <input type="tel" class="form-control" id="telefoneresponsavel" placeholder="(00)0000-0000">
+                        <label for="telefone_responsavel">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_responsavel" value="{{auth() -> user() -> telefone_responsavel}}" name="telefone_responsavel" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="celular">Celular</label>
-                        <input type="tel" class="form-control" id="celular" placeholder="(00)00000-0000">
+                        <label for="celular_responsavel">Celular</label>
+                        <input type="tel" class="form-control" id="celular_responsavel" value="{{auth() -> user() -> celular_responsavel}}" name="celular_responsavel" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000">
                     </div>
                 </div>
                 <fieldset class="form-group">
@@ -108,19 +110,19 @@
                         <legend class="col-form-label col-sm-2 pt-0">Gênero</legend>
                         <div class="col-sm-10">
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="masculino" value="1" checked>
+                                <input class="form-check-input" type="radio"  name="genero" id="masculino" value="1" checked>
                                 <label class="form-check-label" for="masculino">
                                     Masculino
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="feminino" value="2">
+                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2">
                                 <label class="form-check-label" for="feminino">
                                     Feminino
                                 </label>
                             </div>
                             <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="gridRadios" id="outro" value="3">
+                                <input class="form-check-input" type="radio" name="genero" id="outro" value="3">
                                 <label class="form-check-label" for="outro">
                                     Outro
                                 </label>
@@ -128,18 +130,9 @@
                         </div>
                     </div>
                 </fieldset>
-                <div class="form-row">
-                    <div class="form-group col-md-6">
-                        <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Senha">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label for="confimasenha">Confirme a senha</label>
-                        <input type="password" class="form-control" id="confimasenha" placeholder="Confirmar a senha">
-                    </div>
-                </div>
             </div>
+            {{Form::hidden('_method', 'PUT')}}
             <button type="submit" class="btn btn-outline-primary float-right">Salvar</button>
-        </form>
+        {!! Form::close() !!}
     </div>
 @endsection

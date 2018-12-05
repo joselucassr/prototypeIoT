@@ -29,9 +29,9 @@
             @foreach ($data['sensores'] as $sensor)
                 <tr>
                     <td>{{$sensor -> nome}}</td>
-                    <td>10 °C</td>
-                    <td>100%</td>
-                    <td>13/11/2018 14:30:15</td>
+                    <td>{{$sensor -> temperatura}} °C</td>
+                    <td>{{$sensor -> bateria}}%</td>
+                    <td>{{$sensor -> updated_at}}</td>
                     <td><a href="/sensor/{{$sensor -> id}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog"></i></a></td>
                     <td><a href="/sensor" class="gray-link"><i class="fas fa-arrow-right"></i></a></td>
                 </tr>

@@ -33,6 +33,14 @@ a.gray-link{
         color: rgba(0,0,0,.75);
     }
 
+a.linkAzul{
+    color: #379d82;
+    text-decoration: none;
+}
+    a.linkAzul:hover{
+        color: #3a7278;
+    }
+
 .titulo{
     color: #4b4b4b;
     font-family: 'Montserrat', sans-serif;
@@ -67,12 +75,12 @@ a.gray-link{
 
 .corpo{
     border-radius: 10px;
-    height: 100%;
     box-shadow: 9px 9px 28px rgba(0,0,0,0.1);
+    background-color: #fafafa;
 }
 
 .iconBateria{
-    font-size: 25px;
+    font-size: 15px;
     margin-bottom: 5px;
     margin-left: 10px;
     color: #218536;

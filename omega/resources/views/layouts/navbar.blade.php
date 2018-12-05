@@ -2,7 +2,7 @@
 
 @section('navbar')
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fff; border-bottom: 1px solid rgba(0,0,0,0.25)">
-    <a class="navbar-brand" href="#">Projeto Omega</a>
+    <a class="navbar-brand" href="/grupos">Projeto Omega</a>
     @if (!Auth::guest())
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -17,7 +17,7 @@
                     <a class="nav-link" href="#">Relatório</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/editarcadastro">Meus Dados</a>
+                    <a class="nav-link" href="/cadastro/edit">Meus Dados</a>
                 </li>
             </ul>
             <div class="float-right row" style="padding-right: 20px">

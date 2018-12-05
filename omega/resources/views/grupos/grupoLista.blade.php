@@ -1,7 +1,8 @@
 @extends('layouts.navbar')
 
 @section('content')
-    <div class="container col-12" style="padding-bottom: 50px">
+    <div class="container col-12" style="padding-bottom: 50px; margin-top: 20px">
+        <h1 class="text-center">Painel Geral</h1>
         <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); margin-top: 20px; margin-bottom: 30px">
             <div class="col-2" style="margin-right: 15px">
                 <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>

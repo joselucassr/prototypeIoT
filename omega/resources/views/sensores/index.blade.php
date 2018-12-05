@@ -15,26 +15,21 @@
             @if (count($data['sensores']) > 0)
                 @foreach ($data['sensores'] as $sensor)
                     <!-- Card Personalizado -->
-                    <div class="container-fluid col-md-4" style="padding-bottom: 50px">
+                    <div class="container-fluid col-md-4" style="padding-bottom: 75px; margin-bottom: 0">
                         <div class="row">
-                            <div class="col-6">{{$sensor -> nome}}</div>
-                            <div class="col-4">
-                                <a href="/sensor" class="d-inline float-right gray-link">Detalhes</a>
+                            <div class="col-6"><a href="/sensor/{{$sensor->id}}" class="gray-link" style="color: rgba(0,0,0,0.85); font-size: 25px">{{$sensor -> nome}}</a></div>
+                            <div class="col-4 float-right my-auto">
+                                <p class=" float-right" style="color: #218536;">{{$sensor -> bateria}}% <i class="fas fa-battery-full iconBateria"></i></p>
                             </div>
                             <div class="col-2">
                                 <a class="gray-link" href="/sensor/{{$sensor -> id}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
                             </div>
                         </div>
                             <div class="corpo">
-                                <div id="sensor{{$sensor -> id}}" class="col-12 mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
+                                <div id="sensor{{$sensor -> id}}" class="mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
                                 <!-- AQUI FICA O GRÁFICO -->
                                 </div>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <i class="fas fa-battery-full iconBateria"></i>
-                                    </div>
-                                    <div class="col-6"><p class="hora">{{$sensor -> updated_at}}</p></div>
-                                </div>
+                                <div class="col text-right" style="margin-top: 50px;"><p class="hora" style="color: rgba(0,0,0,0.85)">{{$sensor -> updated_at}}</p></div>
                                 @include('../inc/graficoRadial')
                             </div>
                     </div>

@@ -20,7 +20,9 @@ Route::post('/sensores', 'SensoresController@store');
 Route::get('/sensores/{id}/lista', 'SensoresController@sensoreslista');
 Route::get('/sensores/{id}/create', 'SensoresController@create');
 Route::get('/sensor/{id}/edit', 'SensoresController@edit');
+Route::get('/sensor/{id}', 'SensoresController@show');
 Route::put('/sensor/{id}', 'SensoresController@update');
+Route::put('/sensor/{id}/obs', 'SensoresController@updateSensor');
 Route::delete('/sensor/{id}', 'SensoresController@destroy');
 Route::get('/cadastro', 'PagesController@cadastro');
 Route::get('/editargrupo', 'PagesController@editarGrupo');
@@ -33,5 +35,7 @@ Route::get('/gruposlista', 'GruposController@gruposlista');
 Route::resource('grupos', 'GruposController');
 
 Route::get('/register', 'RegisterController@store');
+Route::get('/cadastro/edit', 'PagesController@edit');
+Route::put('/register', 'PagesController@update');
 
 Auth::routes();

@@ -25,7 +25,7 @@
                     <!-- CNPJ -->
                     <div class="form-group col-md-6">
                         <label for="cnpj">CNPJ</label>
-                        <input type="text" class="form-control" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" data-mask="00.000.000/0000-00"    required placeholder="00.000.000/0000-00">
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" value="{{ old('cnpj') }}" data-mask="00.000.000/0000-00" required placeholder="00.000.000/0000-00">
 
                         @if ($errors->has('cnpj'))
                             <span class="help-block">

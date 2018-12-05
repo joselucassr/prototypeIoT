@@ -27,7 +27,7 @@
         }
     });
     bar.text.style.fontFamily = '"Roboto", sans-serif';
-    bar.text.style.fontSize = '2rem';
+    bar.text.style.fontSize = '3.5rem';
 
     bar.animate({{0.5 + (($sensor -> temperatura) / 100)}});  // Number from 0.0 to 1.0
 
