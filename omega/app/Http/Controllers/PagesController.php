@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Sensor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use App\User;
 
 class PagesController extends Controller
@@ -82,6 +84,32 @@ class PagesController extends Controller
         $user -> save();
 
         return redirect('/cadastro/edit') -> with('success', 'Cadastro Atualizado');
+    }
+
+    /*
+     * Funções Para a pesquisa
+     */
+
+    public function pesquisa()
+    {
+        return view('pages.pesquisa');
+    }
+
+    public function pesquisar()
+    {
+        $pesquisa = Input::get('pesquisa');
+        $user_id = Input::get('user_id');
+
+        if (auth() -> user() -> id == $user_id){
+            if ($pesquisa != ""){
+                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%')->orWhere('nome','LIKE','%'.$pesquisa.'%')->get();
+                if(count($sensor) > 0)
+                    return view('pages.pesquisa') -> withDetails($sensor) -> withQuery($pesquisa);
+            }
+            else return view ('pages.pesquisa')->with('error', 'Não foram encontrados resultados!');
+        }else{
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
     }
 
 }

@@ -34,6 +34,9 @@ Route::get('/gruposlista', 'GruposController@gruposlista');
 
 Route::resource('grupos', 'GruposController');
 
+Route::get('/pesquisa', 'PagesController@pesquisa');
+Route::post('/pesquisar', 'PagesController@pesquisar');
+
 Route::get('/register', 'RegisterController@store');
 Route::get('/cadastro/edit', 'PagesController@edit');
 Route::put('/register', 'PagesController@update');

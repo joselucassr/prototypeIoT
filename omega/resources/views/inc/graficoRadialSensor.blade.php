@@ -20,7 +20,7 @@
             if (value === 0) {
                 bar.setText('');
             } else {
-                bar.setText(value - 50 + " °C");
+                bar.setText(value - 30 + " °C");
             }
 
             bar.text.style.color = state.color;
@@ -29,6 +29,6 @@
     bar.text.style.fontFamily = '"Roboto", sans-serif';
     bar.text.style.fontSize = '3.5rem';
 
-    bar.animate({{0.5 + (($sensor -> temperatura) / 100)}});  // Number from 0.0 to 1.0
+    bar.animate({{0.3 + (($sensor -> temperatura) / 100)}});  // Number from 0.0 to 1.0 // VAI DE -30 a +70
 
 </script>

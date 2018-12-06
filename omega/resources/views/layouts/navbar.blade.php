@@ -19,12 +19,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/cadastro/edit">Meus Dados</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/pesquisa">Pesquisar</a>
+                </li>
             </ul>
             <div class="float-right row" style="padding-right: 20px">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar sensor">
-                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit" style="border: none;"><i class="fas fa-search"></i></button>
-                </form>
                 <ul class="navbar-nav mr-auto">
 
                     <!-- Authentication Links -->
