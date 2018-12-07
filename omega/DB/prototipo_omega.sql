@@ -162,7 +162,7 @@ ALTER TABLE `migrations`
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
+  ADD KEY `password_resets_email_index` (`email_responsavel`);
 
 --
 -- Indexes for table `sensores`

@@ -102,7 +102,7 @@ class PagesController extends Controller
 
         if (auth() -> user() -> id == $user_id){
             if ($pesquisa != ""){
-                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%')->orWhere('nome','LIKE','%'.$pesquisa.'%')->get();
+                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->orWhere('nome','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) -> get();
                 if(count($sensor) > 0)
                     return view('pages.pesquisa') -> withDetails($sensor) -> withQuery($pesquisa);
             }
