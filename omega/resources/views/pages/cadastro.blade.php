@@ -144,12 +144,12 @@
                 <div class="form-row">
                     <!-- NOME RESPONSÁVEL -->
                     <div class="form-group col-md-6">
-                        <label for="nome_responsavel">Nome</label>
-                        <input type="text" class="form-control" id="nome_responsavel" name="nome_responsavel" value="{{ old('nome_responsavel') }}" required placeholder="Nome Completo">
+                        <label for="nome_usuario">Nome</label>
+                        <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" value="{{ old('nome_usuario') }}" required placeholder="Nome Completo">
 
-                        @if ($errors->has('nome_responsavel'))
+                        @if ($errors->has('nome_usuario'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('nome_responsavel') }}</strong>
+                                <strong>{{ $errors->first('nome_usuario') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -169,36 +169,36 @@
                 <div class="form-row">
                     <!-- EMAIL DO RESPONSÁVEL -->
                     <div class="form-group col-md-6">
-                        <label for="email_responsavel">Email</label>
-                        <input type="email" class="form-control" id="email_responsavel" name="email_responsavel" value="{{ old('email_responsavel') }}" required placeholder="email@email.com">
+                        <label for="email_usuario">Email</label>
+                        <input type="email" class="form-control" id="email_usuario" name="email_usuario" value="{{ old('email_usuario') }}" required placeholder="email@email.com">
 
-                        @if ($errors->has('email_responsavel'))
+                        @if ($errors->has('email_usuario'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('email_responsavel') }}</strong>
+                                <strong>{{ $errors->first('email_usuario') }}</strong>
                             </span>
                         @endif
                     </div>
 
                     <!-- TELEFONE RESPOSÁVEL -->
                     <div class="form-group col-md-3">
-                        <label for="telefone_responsavel">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_responsavel" name="telefone_responsavel" value="{{ old('telefone_responsavel') }}" data-mask="(00) 0000-0000" placeholder="(00)0000-0000">
+                        <label for="telefone_usuario">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_usuario" name="telefone_usuario" value="{{ old('telefone_usuario') }}" data-mask="(00) 0000-0000" placeholder="(00)0000-0000">
 
-                        @if ($errors->has('telefone_responsavel'))
+                        @if ($errors->has('telefone_usuario'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('telefone_responsavel') }}</strong>
+                                <strong>{{ $errors->first('telefone_usuario') }}</strong>
                             </span>
                         @endif
                     </div>
 
                     <!-- CELULAR RESPONSÁVEL -->
                     <div class="form-group col-md-3">
-                        <label for="celular_responsavel">Celular</label>
-                        <input type="tel" class="form-control" id="celular_responsavel" name="celular_responsavel" value="{{ old('celular_responsavel') }}" data-mask="(00) 00000-0000" required placeholder="(00)00000-0000">
+                        <label for="celular_usuario">Celular</label>
+                        <input type="tel" class="form-control" id="celular_usuario" name="celular_usuario" value="{{ old('celular_usuario') }}" data-mask="(00) 00000-0000" required placeholder="(00)00000-0000">
 
-                        @if ($errors->has('celular_responsavel'))
+                        @if ($errors->has('celular_usuario'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('celular_responsavel') }}</strong>
+                                <strong>{{ $errors->first('celular_usuario') }}</strong>
                             </span>
                         @endif
                     </div>

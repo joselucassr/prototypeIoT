@@ -83,8 +83,8 @@
                 <h3>Responsável</h3>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="nome_responsavel">Nome</label>
-                        <input type="text" class="form-control" id="nome_responsavel" value="{{auth() -> user() -> nome_responsavel}}" name="nome_responsavel" placeholder="Nome Completo">
+                        <label for="nome_usuario">Nome</label>
+                        <input type="text" class="form-control" id="nome_usuario" value="{{auth() -> user() -> nome_usuario}}" name="nome_usuario" placeholder="Nome Completo">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cpf">CPF</label>
@@ -93,16 +93,16 @@
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="email_responsavel">Email</label>
-                        <input type="email" class="form-control" id="email_responsavel" value="{{auth() -> user() -> email_responsavel}}" name="email_responsavel" placeholder="email@email.com">
+                        <label for="email_usuario">Email</label>
+                        <input type="email" class="form-control" id="email_usuario" value="{{auth() -> user() -> email_usuario}}" name="email_usuario" placeholder="email@email.com">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="telefone_responsavel">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_responsavel" value="{{auth() -> user() -> telefone_responsavel}}" name="telefone_responsavel" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
+                        <label for="telefone_usuario">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_usuario" value="{{auth() -> user() -> telefone_usuario}}" name="telefone_usuario" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="celular_responsavel">Celular</label>
-                        <input type="tel" class="form-control" id="celular_responsavel" value="{{auth() -> user() -> celular_responsavel}}" name="celular_responsavel" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000">
+                        <label for="celular_usuario">Celular</label>
+                        <input type="tel" class="form-control" id="celular_usuario" value="{{auth() -> user() -> celular_usuario}}" name="celular_usuario" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000">
                     </div>
                 </div>
                 <fieldset class="form-group">

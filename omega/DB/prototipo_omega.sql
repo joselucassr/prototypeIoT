@@ -124,11 +124,11 @@ CREATE TABLE `users` (
   `cidade` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `estado` char(2) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cep` varchar(13) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `nome_responsavel` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `nome_usuario` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cpf` varchar(14) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email_responsavel` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `telefone_responsavel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `celular_responsavel` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_usuario` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `telefone_usuario` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `celular_usuario` varchar(15) COLLATE utf8mb4_unicode_ci NOT NULL,
   `genero` int(11) NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -162,7 +162,7 @@ ALTER TABLE `migrations`
 -- Indexes for table `password_resets`
 --
 ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email_responsavel`);
+  ADD KEY `password_resets_email_index` (`email_usuario`);
 
 --
 -- Indexes for table `sensores`
@@ -180,9 +180,9 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `users_telefone_1_empresa_unique` (`telefone_1_empresa`),
   ADD UNIQUE KEY `users_telefone_2_empresa_unique` (`telefone_2_empresa`),
   ADD UNIQUE KEY `users_cpf_unique` (`cpf`),
-  ADD UNIQUE KEY `users_email_responsavel_unique` (`email_responsavel`),
-  ADD UNIQUE KEY `users_telefone_responsavel_unique` (`telefone_responsavel`),
-  ADD UNIQUE KEY `users_celular_responsavel_unique` (`celular_responsavel`);
+  ADD UNIQUE KEY `users_email_usuario_unique` (`email_usuario`),
+  ADD UNIQUE KEY `users_telefone_usuario_unique` (`telefone_usuario`),
+  ADD UNIQUE KEY `users_celular_usuario_unique` (`celular_usuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables

@@ -26,7 +26,7 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $user_id = auth() -> user() -> id;
+        $user_id = auth() -> user() -> id_usuario;
         $user = User::find($user_id);
         return view('grupos.index') -> with('grupos', $user -> grupos);
     }

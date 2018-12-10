@@ -75,11 +75,11 @@ class PagesController extends Controller
         $user -> cidade = $request -> input('cidade');
         $user -> estado = $request -> input('estado');
         $user -> cep = $request -> input('cep');
-        $user -> nome_responsavel = $request -> input('nome_responsavel');
+        $user -> nome_usuario = $request -> input('nome_usuario');
         $user -> cpf = $request -> input('cpf');
-        $user -> email_responsavel = $request -> input('email_responsavel');
-        $user -> telefone_responsavel = $request -> input('telefone_responsavel');
-        $user -> celular_responsavel = $request -> input('celular_responsavel');
+        $user -> email_usuario = $request -> input('email_usuario');
+        $user -> telefone_usuario = $request -> input('telefone_usuario');
+        $user -> celular_usuario = $request -> input('celular_usuario');
         $user -> genero = $request -> input('genero');
         $user -> save();
 
@@ -102,7 +102,7 @@ class PagesController extends Controller
 
         if (auth() -> user() -> id == $user_id){
             if ($pesquisa != ""){
-                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->orWhere('nome','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) -> get();
+                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->orWhere('nome','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->                                                         get();
                 if(count($sensor) > 0)
                     return view('pages.pesquisa') -> withDetails($sensor) -> withQuery($pesquisa);
             }

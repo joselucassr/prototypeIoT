@@ -39,7 +39,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'email_responsavel';
+        return 'email_usuario';
     }
 
     public function showLoginForm()
