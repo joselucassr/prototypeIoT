@@ -48,6 +48,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+
             // EMPRESA
             'nome_empresa' => 'required|string|max:255',
             'cnpj' => 'required|string|max:20|unique:users',
@@ -57,6 +58,9 @@ class RegisterController extends Controller
             'cidade' => 'required|string|max:255',
             'estado' => 'required|string|max:2',
             'cep' => 'required|string|max:13',
+            'password' => 'required|string|min:6|confirmed'
+
+            /*
             // RESPONSÁVEL
             'nome_usuario' => 'required|string|max:255|unique:users',
             'cpf' => 'required|string|max:14|unique:users',
@@ -65,6 +69,7 @@ class RegisterController extends Controller
             'celular_usuario' => 'required|string|max:15|unique:users',
             'genero' => 'required|string|max:11',
             'password' => 'required|string|min:6|confirmed',
+            */
         ]);
     }
 
@@ -77,6 +82,7 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
+
             'nome_empresa' => $data['nome_empresa'],
             'cnpj' => $data['cnpj'],
             'email_empresa' => $data['email_empresa'],
@@ -85,6 +91,9 @@ class RegisterController extends Controller
             'cidade' => $data['cidade'],
             'estado' => $data['estado'],
             'cep' => $data['cep'],
+            'password' => bcrypt($data['password'])
+
+            /*
             'nome_usuario' => $data['nome_usuario'],
             'cpf' => $data['cpf'],
             'email_usuario' => $data['email_usuario'],
@@ -92,6 +101,7 @@ class RegisterController extends Controller
             'celular_usuario' => $data['celular_usuario'],
             'genero' => $data['genero'],
             'password' => bcrypt($data['password']),
+            */
         ]);
     }
 }

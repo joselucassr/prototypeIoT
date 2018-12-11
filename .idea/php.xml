@@ -128,6 +128,8 @@
       <path value="$PROJECT_DIR$/omega/vendor/symfony/yaml" />
       <path value="$PROJECT_DIR$/omega/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/omega/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/omega/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/omega/vendor/barryvdh/laravel-debugbar" />
     </include_path>
   </component>
   <component name="PhpUnit">

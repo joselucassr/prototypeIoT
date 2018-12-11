@@ -138,116 +138,17 @@
                 </div>
             </div>
 
-            <!-- Responsável Legal -->
-            <div class="form-empresa">
-                <h3>Responsável</h3>
-                <div class="form-row">
-                    <!-- NOME RESPONSÁVEL -->
-                    <div class="form-group col-md-6">
-                        <label for="nome_usuario">Nome</label>
-                        <input type="text" class="form-control" id="nome_usuario" name="nome_usuario" value="{{ old('nome_usuario') }}" required placeholder="Nome Completo">
-
-                        @if ($errors->has('nome_usuario'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('nome_usuario') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <!-- CPF -->
-                    <div class="form-group col-md-6">
-                        <label for="cpf">CPF</label>
-                        <input type="text" class="form-control" id="cpf" name="cpf" value="{{ old('cpf') }}" data-mask="000.000.000-00"  required placeholder="000.000.000-00">
-
-                        @if ($errors->has('cpf'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('cpf') }}</strong>
-                            </span>
-                        @endif
-                    </div>
+            <div class="form-row">
+                <!-- SENHA -->
+                <div class="form-group col-md-6">
+                    <label for="senha">Senha</label>
+                    <input type="password" class="form-control" id="senha" name="password" value="{{ old('senha') }}" placeholder="Senha">
                 </div>
-                <div class="form-row">
-                    <!-- EMAIL DO RESPONSÁVEL -->
-                    <div class="form-group col-md-6">
-                        <label for="email_usuario">Email</label>
-                        <input type="email" class="form-control" id="email_usuario" name="email_usuario" value="{{ old('email_usuario') }}" required placeholder="email@email.com">
 
-                        @if ($errors->has('email_usuario'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('email_usuario') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <!-- TELEFONE RESPOSÁVEL -->
-                    <div class="form-group col-md-3">
-                        <label for="telefone_usuario">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_usuario" name="telefone_usuario" value="{{ old('telefone_usuario') }}" data-mask="(00) 0000-0000" placeholder="(00)0000-0000">
-
-                        @if ($errors->has('telefone_usuario'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('telefone_usuario') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-
-                    <!-- CELULAR RESPONSÁVEL -->
-                    <div class="form-group col-md-3">
-                        <label for="celular_usuario">Celular</label>
-                        <input type="tel" class="form-control" id="celular_usuario" name="celular_usuario" value="{{ old('celular_usuario') }}" data-mask="(00) 00000-0000" required placeholder="(00)00000-0000">
-
-                        @if ($errors->has('celular_usuario'))
-                            <span class="help-block">
-                                <strong>{{ $errors->first('celular_usuario') }}</strong>
-                            </span>
-                        @endif
-                    </div>
-                </div>
-                <fieldset class="form-group">
-                    <!-- GÊNERO -->
-                    <div class="row">
-                        <legend class="col-form-label col-sm-2 pt-0">Gênero</legend>
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="genero" id="masculino" value="1">
-                                <label class="form-check-label" for="masculino">
-                                    Masculino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2">
-                                <label class="form-check-label" for="feminino">
-                                    Feminino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="genero" id="outro" value="3">
-                                <label class="form-check-label" for="outro">
-                                    Outro
-                                </label>
-                            </div>
-
-                            @if ($errors->has('genero'))
-                                <span class="help-block">
-                                <strong>{{ $errors->first('genero') }}</strong>
-                            </span>
-                            @endif
-                        </div>
-                    </div>
-                </fieldset>
-
-                <div class="form-row">
-                    <!-- SENHA -->
-                    <div class="form-group col-md-6">
-                        <label for="senha">Senha</label>
-                        <input type="password" class="form-control" id="senha" name="password" value="{{ old('senha') }}" placeholder="Senha">
-                    </div>
-
-                    <!-- CONFIRMAR SENHA -->
-                    <div class="form-group col-md-6">
-                        <label for="confimasenha">Confirme a senha</label>
-                        <input type="password" class="form-control" id="confimasenha" name="password_confirmation" placeholder="Confirmar a senha">
-                    </div>
+                <!-- CONFIRMAR SENHA -->
+                <div class="form-group col-md-6">
+                    <label for="confimasenha">Confirme a senha</label>
+                    <input type="password" class="form-control" id="confimasenha" name="password_confirmation" placeholder="Confirmar a senha">
                 </div>
             </div>
             <button type="submit" class="btn btn-outline-primary">Salvar</button>
