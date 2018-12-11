@@ -1,5 +1,5 @@
 <script>
-    var bar = new ProgressBar.SemiCircle('#sensor{{$sensor -> id}}', {
+    var bar = new ProgressBar.SemiCircle('#sensor{{$sensor -> id_sensor}}', {
         strokeWidth: 6,
         color: '#FFEA82',
         trailColor: '#eee',

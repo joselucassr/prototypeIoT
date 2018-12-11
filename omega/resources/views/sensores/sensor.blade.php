@@ -2,15 +2,15 @@
 
 @section('content')
     <div class="container col-12">
-        <a class="gray-link" href="/sensores/{{$sensor -> grupo_id}}" style="font-size: 35px; position: relative; z-index: 999;"><i class="fas fa-long-arrow-alt-left"></i></a>
+        <a class="gray-link" href="/sensores/{{$sensor -> grupo_id_grupo}}" style="font-size: 35px; position: relative; z-index: 999;"><i class="fas fa-long-arrow-alt-left"></i></a>
         <div class="col-12" style="margin-top: -50px;">
-            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome}} #{{$sensor -> id}}</h1>
+            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome_sensor}} #{{$sensor -> id_sensor}}</h1>
         </div>
         <div class="container col-12" style="padding-top: 20px;">
            <div class="row container-temp-chart">
                 <!-- Temperatura -->
                 <div class="col-lg-6 col-md-12">
-                    <div id="sensor{{$sensor -> id}}" class="col-12 mx-auto" style="width: 400px; height: 200px; padding-top: 10px;">
+                    <div id="sensor{{$sensor -> id_sensor}}" class="col-12 mx-auto" style="width: 400px; height: 200px; padding-top: 10px;">
                         <!-- AQUI FICA O GRÁFICO -->
                     </div>
                 </div>
@@ -39,7 +39,7 @@
                    {!! Form::open(['action' => ['SensoresController@updateSensor', $sensor -> id], 'method' => 'POST']) !!}
                        {{Form::label('obs', 'Observações')}}
                        {{Form::textarea('obs', $sensor -> obs, ['class' => 'form-control', 'rows' => '6'])}}
-                   {{ Form::hidden('grupo_id', $sensor -> grupo_id)}}
+                   {{ Form::hidden('grupo_id', $sensor -> grupo_id_grupo)}}
                    {{Form::hidden('_method', 'PUT')}}
                    {{Form::submit('Salvar', ['class' => 'btn btn-outline-primary float-right', 'style' => 'margin-top: 5px'])}}
                    {!! Form::close() !!}

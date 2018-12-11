@@ -2,21 +2,24 @@
 
 @section('content')
     <div class="container mx-auto" style="margin-top: 50px;">
+
+        <?php echo $id ?>
+
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
             <h3>Adicionar Sensor</h3>
             {!! Form::open(['action' => 'SensoresController@store', 'method' => 'POST', 'novalidate', 'class' => 'needs-validation']) !!}
                 <div class="form-group">
-                    {{Form::label('nome', 'Nome')}}
-                    {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome do Sensor', 'required'])}}
+                    {{Form::label('nome_sensor', 'Nome')}}
+                    {{Form::text('nome_sensor', '', ['class' => 'form-control', 'placeholder' => 'Nome do Sensor', 'required'])}}
                     <div class="invalid-feedback">
                         Campo Obrigatório
                     </div>
                 </div>
                 <div class="form-group">
-                    {{Form::label('id', 'ID')}}
+                    {{Form::label('id_sensor', 'ID')}}
                     <button type="button" class="btn btn-outline-info float-right" style="border: none;" data-toggle="modal" data-target="#modalSensorID"><i class="fas fa-question"></i></button>
-                    {{Form::text('id', '', ['class' => 'form-control', 'placeholder' => '00000000000', 'required'])}}
+                    {{Form::text('id_sensor', '', ['class' => 'form-control', 'placeholder' => '00000000000', 'required'])}}
                     <div class="invalid-feedback">
                         Campo Obrigatório
                     </div>
@@ -45,7 +48,7 @@
                     </div>
                 </div>
                 {{Form::submit('Adicionar', ['class' => 'btn btn-outline-primary float-right'])}}
-                {{ Form::hidden('grupo_id', $id)}}
+                {{ Form::hidden('grupo_id_grupo', $id)}}
             {!! Form::close() !!}
         </div>
     </div>

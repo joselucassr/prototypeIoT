@@ -26,7 +26,7 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $user_id = auth() -> user() -> id_usuario;
+        $user_id = auth() -> user() -> id_empresa;
         $user = User::find($user_id);
         return view('grupos.index') -> with('grupos', $user -> grupos);
     }
@@ -66,9 +66,9 @@ class GruposController extends Controller
 
         // Criar Grupo
         $grupo = new Grupo;
-        $grupo -> nome = $request -> input('nome');
-        $grupo -> obs = $request -> input('obs');
-        $grupo -> user_id = auth() -> user() -> id;
+        $grupo -> nome_grupo = $request -> input('nome');
+        $grupo -> descricao_grupo = $request -> input('obs');
+        $grupo -> empresa_id_empresa = auth() -> user() -> id_empresa;
         $grupo -> save();
 
         return redirect('/grupos') -> with('success', 'Grupo criado');

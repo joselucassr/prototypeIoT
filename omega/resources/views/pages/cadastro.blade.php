@@ -11,7 +11,7 @@
                 <h3>Empresa</h3>
                 <div class="form-row">
                     <!-- NOME DA EMPRESA -->
-                    <div class="form-group{{ $errors->has('nomeempresa') ? ' has-error' : '' }} col-md-6">
+                    <div class="form-group{{ $errors->has('nome_empresa') ? ' has-error' : '' }} col-md-6">
                         <label for="nome_empresa">Nome Empresa</label>
                         <input id="nome_empresa" type="text" class="form-control" name="nome_empresa" value="{{ old('nome_empresa') }}" required autofocus placeholder="Nome da empresa">
 
@@ -49,24 +49,24 @@
 
                     <!-- TELEFONE 1 -->
                     <div class="form-group col-md-3">
-                        <label for="telefone_1_empresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{ old('telefone_1_empresa') }}" data-mask="(00) 0000-0000" required placeholder="(00) 0000-0000">
+                        <label for="telefone_empresa">Telefone</label>
+                        <input type="tel" class="form-control" id="telefone_empresa" name="telefone_empresa" value="{{ old('telefone_empresa') }}" data-mask="(00) 0000-0000" required placeholder="(00) 0000-0000">
 
-                        @if ($errors->has('telefone_1_empresa'))
+                        @if ($errors->has('telefone_empresa'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('telefone_1_empresa') }}</strong>
+                                <strong>{{ $errors->first('telefone_empresa') }}</strong>
                             </span>
                         @endif
                     </div>
 
                     <!-- TELEFONE 2 -->
                     <div class="form-group col-md-3">
-                        <label for="telefone_2_empresa">Celular</label>
-                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{ old('telefone_2_empresa') }}" data-mask="(00) 00000-0000" required placeholder="(00) 00000-0000">
+                        <label for="celular_empresa">Celular</label>
+                        <input type="tel" class="form-control" id="celular_empresa" name="celular_empresa" value="{{ old('celular_empresa') }}" data-mask="(00) 00000-0000" required placeholder="(00) 00000-0000">
 
-                        @if ($errors->has('telefone_2_empresa'))
+                        @if ($errors->has('celular_empresa'))
                             <span class="help-block">
-                                <strong>{{ $errors->first('telefone_2_empresa') }}</strong>
+                                <strong>{{ $errors->first('celular_empresa') }}</strong>
                             </span>
                         @endif
                     </div>

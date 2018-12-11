@@ -14,9 +14,14 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    protected $table = 'empresa';
+    protected $primaryKey = 'id_empresa';
+
+
     protected $fillable = [
-        /*'nome_empresa', 'cnpj', 'email_empresa', 'telefone_1_empresa', 'telefone_2_empresa', 'cidade', 'estado', 'cep',*/
-        'nome_usuario', 'cpf', 'email_usuario', 'telefone_usuario', 'celular_usuario', 'genero', 'password'
+        'nome_empresa', 'cnpj', 'email_empresa', 'telefone_empresa', 'celular_empresa', 'cidade', 'estado', 'cep', 'password'
+        /*'nome_usuario', 'cpf', 'email_usuario', 'telefone_usuario', 'celular_usuario', 'genero', 'password'*/
     ];
 
     /**
@@ -29,6 +34,11 @@ class User extends Authenticatable
     ];
 
     public function grupos(){
-        return $this -> hasMany('App\Grupo');
+        return $this -> hasMany('App\Grupo', 'empresa_id_empresa', 'id_empresa');
     }
+
+    public function sensores(){
+        return $this -> hasMany('App\Sensor', 'empresa_id_empresa');
+    }
+
 }

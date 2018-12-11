@@ -34,11 +34,11 @@ class SensoresController extends Controller
         $grupo = Grupo::find($id);
 
         // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
+        if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
 
-        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo]);
+        return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'grupo' => $grupo]);
 
     }
 
@@ -84,20 +84,21 @@ class SensoresController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'nome' => 'required'
+            'nome_sensor' => 'required'
         ]);
 
         // Criar Sensor
         $sensor = new Sensor;
-        $sensor -> nome = $request -> input('nome');
-        $sensor -> id = $request -> input('id');
+        $sensor -> empresa_id_empresa = auth() -> user() -> id_empresa;
+        $sensor -> grupo_id_grupo = $request -> input('grupo_id_grupo');
+        $sensor -> nome_sensor = $request -> input('nome_sensor');
+        $sensor -> id_sensor = $request -> input('id_sensor');
         $sensor -> tempmax = $request -> input('tempmax');
         $sensor -> tempmin = $request -> input('tempmin');
         $sensor -> obs = $request -> input('obs');
-        $sensor -> grupo_id = $request -> input('grupo_id');
         $sensor -> save();
 
-        $id = $sensor -> grupo_id = $request -> input('grupo_id');
+        $id = $sensor -> grupo_id_grupo = $request -> input('grupo_id_grupo');
 
         return redirect('/sensores/'.$id) -> with('success', 'Sensor criado');
     }

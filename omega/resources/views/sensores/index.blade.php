@@ -5,10 +5,10 @@
         <h1 class="text-center">{{$data['grupo'] -> nome}}</h1>
         <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); padding: 0;">
             <div class="col-2" style="margin-right: 15px">
-                <a href="/sensores/{{$data['id']}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
+                <a href="/sensores/{{$data['grupo'] -> id_grupo}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
             </div>
             <div class="col-2">
-                <a href="/sensores/{{$data['grupo'] -> id}}/lista" class="gray-link"><i class="fas fa-list-ul"></i></a>
+                <a href="/sensores/{{$data['grupo'] -> id_grupo}}/lista" class="gray-link"><i class="fas fa-list-ul"></i></a>
             </div>
         </div>
         <div class="row col-12 mx-auto" style="padding: 20px 0 0 0;">
@@ -17,16 +17,16 @@
                     <!-- Card Personalizado -->
                     <div class="container-fluid col-md-4" style="padding-bottom: 75px; margin-bottom: 0">
                         <div class="row">
-                            <div class="col-6"><a href="/sensor/{{$sensor->id}}" class="gray-link" style="color: rgba(0,0,0,0.85); font-size: 25px">{{$sensor -> nome}}</a></div>
+                            <div class="col-6"><a href="/sensor/{{$sensor->id_sensor}}" class="gray-link" style="color: rgba(0,0,0,0.85); font-size: 25px">{{$sensor -> nome_sensor }}</a></div>
                             <div class="col-4 float-right my-auto">
                                 <p class=" float-right" style="color: #218536;">{{$sensor -> bateria}}% <i class="fas fa-battery-full iconBateria"></i></p>
                             </div>
                             <div class="col-2">
-                                <a class="gray-link" href="/sensor/{{$sensor -> id}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
+                                <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
                             </div>
                         </div>
                             <div class="corpo">
-                                <div id="sensor{{$sensor -> id}}" class="mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
+                                <div id="sensor{{$sensor -> id_sensor}}" class="mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
                                 <!-- AQUI FICA O GRÁFICO -->
                                 </div>
                                 <div class="col text-right" style="margin-top: 50px;"><p class="hora" style="color: rgba(0,0,0,0.85)">{{$sensor -> updated_at}}</p></div>
@@ -36,7 +36,7 @@
                 @endforeach
             @else
                 <div class="alert alert-info col-12 text-center mx-auto" role="alert">
-                    Você não possui nenhum sensor, clique  <a href="/sensores/{{$data['id']}}/create" class="alert-link">aqui</a> para adicionar um.
+                    Você não possui nenhum sensor, clique  <a href="/sensores/{{$data['grupo'] -> id_grupo  }}/create" class="alert-link">aqui</a> para adicionar um.
                 </div>
             @endif
         </div>

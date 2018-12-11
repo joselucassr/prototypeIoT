@@ -7,8 +7,10 @@ use Carbon;
 
 class Sensor extends Model
 {
+    protected $primaryKey = 'id_sensor';
+
     public function user(){
-        return $this -> belongsTo('App\Grupo', 'grupo_id', 'id');
+        return $this -> belongsTo('App\Grupo', 'grupo_id_grupo', 'empresa_id_empresa');
     }
 
     public function dados(){

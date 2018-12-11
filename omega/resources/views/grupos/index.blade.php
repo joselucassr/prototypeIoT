@@ -17,10 +17,10 @@
                         <div class="container-fluid col-md-4" style="margin-bottom: 30px">
                             <div class="row col-12">
                                 <div class="text-left col-8">
-                                    <a href="/sensores/{{$grupo -> id}}/" class="linkAzul"><h3>{{$grupo -> nome}}</h3></a>
+                                    <a href="/sensores/{{$grupo -> id_grupo}}/" class="linkAzul"><h3>{{$grupo -> nome_grupo}}</h3></a>
                                 </div>
                                 <div class="text-right col-4">
-                                    <a href="/grupos/{{$grupo -> id}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
+                                    <a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
                                 </div>
                             </div>
                             <div class="col-12">
@@ -50,7 +50,7 @@
                                 </table>
                             </div>
                             <div class="text-right col-12" style="margin-top: -10px">
-                                <a href="/sensores/{{$grupo -> id}}/" class="linkAzul">Veja seus sensores</a>
+                                <a href="/sensores/{{$grupo -> id_grupo}}" class="linkAzul">Veja seus sensores</a>
                             </div>
                         </div>
                 @endforeach
