@@ -22,6 +22,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/pesquisa">Pesquisar</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/usuarios">Meus Usuários</a>
+                </li>
             </ul>
             <div class="float-right row" style="padding-right: 20px">
                 <ul class="navbar-nav mr-auto">
