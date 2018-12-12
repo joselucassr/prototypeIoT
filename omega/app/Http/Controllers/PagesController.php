@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Sensor;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
 use App\User;
 
 class PagesController extends Controller
@@ -95,18 +94,23 @@ class PagesController extends Controller
         return view('pages.pesquisa');
     }
 
-    public function pesquisar()
+    public function pesquisar(Request $request)
     {
-        $pesquisa = Input::get('pesquisa');
-        $user_id = Input::get('user_id');
 
-        if (auth() -> user() -> id == $user_id){
-            if ($pesquisa != ""){
-                $sensor = Sensor::where('id','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->orWhere('nome','LIKE','%'.$pesquisa.'%') -> where('user_id', $user_id) ->                                                         get();
-                if(count($sensor) > 0)
+        $pesquisa = $request -> input('pesquisa');
+        $id_empresa = $request -> input('id_empresa');
+
+
+        if (auth() -> user() -> id_empresa == $id_empresa){
+            if ($pesquisa != ''){
+                $sensor = Sensor::where('id_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) ->orWhere('nome_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) -> get();
+                if(count($sensor) > 0) {
                     return view('pages.pesquisa') -> withDetails($sensor) -> withQuery($pesquisa);
-            }
-            else return view ('pages.pesquisa')->with('error', 'Não foram encontrados resultados!');
+                }
+                } else {
+                    return view('pages.pesquisa') -> with('error', 'Não foram encontrados resultados!');
+                }
+
         }else{
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }

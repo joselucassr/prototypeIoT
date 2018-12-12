@@ -36,7 +36,7 @@
 
                <!-- Anotações -->
                <div class="col-md-6">
-                   {!! Form::open(['action' => ['SensoresController@updateSensor', $sensor -> id], 'method' => 'POST']) !!}
+                   {!! Form::open(['action' => ['SensoresController@updateSensor', $sensor -> id_sensor], 'method' => 'POST']) !!}
                        {{Form::label('obs', 'Observações')}}
                        {{Form::textarea('obs', $sensor -> obs, ['class' => 'form-control', 'rows' => '6'])}}
                    {{ Form::hidden('grupo_id', $sensor -> grupo_id_grupo)}}

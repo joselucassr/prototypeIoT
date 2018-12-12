@@ -9,21 +9,20 @@
                     <h3>Editar Sensor</h3>
                 </div>
                 <div class="col-2">
-                    {!! Form::open(['action' => ['SensoresController@destroy', $sensor -> id], 'method' => 'POST', 'class' => 'float-right', 'onclick' => "return confirm('Você tem certeza que quer REMOVER esse sensor?');"]) !!}
+                    {!! Form::open(['action' => ['SensoresController@destroy', $sensor -> id_sensor], 'method' => 'POST', 'class' => 'float-right', 'onclick' => "return confirm('Você tem certeza que quer REMOVER esse sensor?');"]) !!}
                         {{Form::hidden('_method', 'DELETE')}}
-                        {{ Form::hidden('grupo_id', $sensor -> grupo_id)}}
                         {{Form::button('<i class="fas fa-trash-alt"></i>', ['class' => 'btn btn-danger', 'type' => 'submit'])}}
                     {!! Form::close() !!}
                 </div>
             </div>
-            {!! Form::open(['action' => ['SensoresController@update', $sensor -> id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['SensoresController@update', $sensor -> id_sensor], 'method' => 'POST']) !!}
                 <div class="form-group">
-                    {{Form::label('nome', 'Nome')}}
-                    {{Form::text('nome', $sensor -> nome, ['class' => 'form-control', 'placeholder' => 'Nome do Sensor'])}}
+                    {{Form::label('nome_sensor', 'Nome')}}
+                    {{Form::text('nome_sensor', $sensor -> nome_sensor, ['class' => 'form-control', 'placeholder' => 'Nome do Sensor'])}}
                 </div>
                 <div class="form-group">
-                    {{Form::label('id', 'ID')}}
-                    {{Form::text('id', $sensor -> id, ['class' => 'form-control', 'placeholder' => '00000000000'])}}
+                    {{Form::label('id_sensor', 'ID')}}
+                    {{Form::text('id_sensor', $sensor -> id_sensor, ['class' => 'form-control', 'placeholder' => '00000000000'])}}
                 </div>
                 <div class="form-row">
                     <div class="form-group col-6">
@@ -39,7 +38,6 @@
                     {{Form::label('obs', 'Observações')}}
                     {{Form::textarea('obs', $sensor -> obs, ['class' => 'form-control', 'rows' => '3'])}}
                 </div>
-                {{ Form::hidden('grupo_id', $sensor -> grupo_id)}}
                 {{Form::hidden('_method', 'PUT')}}
                 {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary float-right'])}}
             {!! Form::close() !!}

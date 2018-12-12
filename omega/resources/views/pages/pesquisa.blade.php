@@ -15,7 +15,7 @@
                     </button>
                 </span>
                 </div>
-                <input type="hidden" value="{{auth()  -> user() -> id}}" name="user_id">
+                <input type="hidden" value="{{auth()  -> user() -> id_empresa}}" name="id_empresa">
             </form>
 
             @if (isset($details))
@@ -34,9 +34,9 @@
                             <tbody>
                             @foreach($details as $sensor)
                                 <tr>
-                                    <td>{{$sensor->id}}</td>
-                                    <td>{{$sensor->nome}}</td>
-                                    <td><a class="gray-link" href="/sensor/{{$sensor -> id}}"><i class="fas fa-sign-in-alt"></i></a></td>
+                                    <td>{{$sensor->id_sensor}}</td>
+                                    <td>{{$sensor->nome_sensor}}</td>
+                                    <td><a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}"><i class="fas fa-sign-in-alt"></i></a></td>
                                 </tr>
                             @endforeach
                             </tbody>

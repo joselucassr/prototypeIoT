@@ -3,8 +3,6 @@
 @section('content')
     <div class="container mx-auto" style="margin-top: 50px;">
 
-        <?php echo $id ?>
-
         <!-- GRUPO -->
         <div class="col-md-6 mx-auto">
             <h3>Adicionar Sensor</h3>

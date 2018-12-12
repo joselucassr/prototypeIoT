@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Dado;
 use App\Grupo;
 use App\Sensor;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
 class SensoresController extends Controller
@@ -51,11 +48,11 @@ class SensoresController extends Controller
         $grupo = Grupo::find($id);
 
         // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
+        if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
 
-        return view('sensores.sensoresLista') -> with( 'data', ['sensores' => $grupo -> sensores, 'id' => $id, 'grupo' => $grupo]);
+        return view('sensores.sensoresLista') -> with( 'data', ['sensores' => $grupo -> sensores, 'grupo' => $grupo]);
 
     }
 
@@ -66,12 +63,6 @@ class SensoresController extends Controller
      */
     public function create($id)
     {
-        $grupo = Grupo::find($id);
-        // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-        }
-
         return view('sensores.adicionarSensor') -> with('id', $id);
     }
 
@@ -113,6 +104,11 @@ class SensoresController extends Controller
     {
         $sensor = Sensor::find($id);
 
+        // Check for correct user
+        if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
+
         return view('sensores.sensor') -> with('sensor', $sensor);
     }
 
@@ -126,10 +122,8 @@ class SensoresController extends Controller
     {
         $sensor = Sensor::find($id);
 
-        $grupo_id = $sensor -> grupo_id;
-        $grupo = Grupo::find($grupo_id);
         // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
+        if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
 
@@ -146,22 +140,27 @@ class SensoresController extends Controller
     public function update(Request $request, $id)
     {
         $this -> validate($request, [
-            'nome' => 'required'
+            'nome_sensor' => 'required'
         ]);
 
         // Atualizar Sensor
         $sensor = Sensor::find($id);
-        $sensor -> nome = $request -> input('nome');
-        $sensor -> id = $request -> input('id');
+
+            // Check for correct user
+            if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
+
+        $sensor -> empresa_id_empresa = auth() -> user() -> id_empresa;
+        $sensor -> grupo_id_grupo = $sensor -> grupo_id_grupo;
+        $sensor -> nome_sensor = $request -> input('nome_sensor');
+        $sensor -> id_sensor = $request -> input('id_sensor');
         $sensor -> tempmax = $request -> input('tempmax');
         $sensor -> tempmin = $request -> input('tempmin');
         $sensor -> obs = $request -> input('obs');
-        $sensor -> grupo_id = $request -> input('grupo_id');
         $sensor -> save();
 
-        $id = $sensor -> grupo_id = $request -> input('grupo_id');
-
-        return redirect('/sensores/'.$id) -> with('success', 'Sensor Modificado');
+        return redirect('/sensores/'.$sensor -> grupo_id_grupo) -> with('success', 'Sensor Modificado');
     }
 
     /*
@@ -173,6 +172,12 @@ class SensoresController extends Controller
 
         // Atualizar Sensor
         $sensor = Sensor::find($id);
+
+            // Check for correct user
+            if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
+
         $sensor -> obs = $request -> input('obs');
         $sensor -> save();
 
@@ -186,21 +191,18 @@ class SensoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Request $request,$id)
+    public function destroy($id)
     {
         $sensor = Sensor::find($id);
 
-        $grupo_id = $sensor -> grupo_id;
-        $grupo = Grupo::find($grupo_id);
-        // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-        }
+            // Check for correct user
+            if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
 
         $sensor -> delete();
 
-        $id = $sensor -> grupo_id = $request -> input('grupo_id');
 
-        return redirect('/sensores/'.$id) -> with ('success', 'Grupo Apagado');
+        return redirect('/sensores/'.$sensor -> grupo_id_grupo) -> with ('success', 'Grupo Apagado');
     }
 }
