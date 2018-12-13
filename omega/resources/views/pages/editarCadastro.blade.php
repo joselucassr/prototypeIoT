@@ -3,7 +3,7 @@
 @section('content')
     <div class="container" style="margin-top: 50px; padding-bottom: 75px;">
         <h2 class="text-center">Editar Cadastro</h2>
-            {!! Form::open(['action' => ['PagesController@update', auth() -> user() -> id], 'method' => 'POST']) !!}
+            {!! Form::open(['action' => ['PagesController@update', auth() -> user() -> id_empresa], 'method' => 'POST']) !!}
 
 
             <!-- Empresa -->
@@ -11,12 +11,12 @@
                 <h3>Empresa</h3>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                        <label for="nomeempresa">Nome Empresa</label>
+                        <label for="nome_empresa">Nome Empresa</label>
                         <input type="text" class="form-control" id="nome_empresa" name="nome_empresa" value="{{auth() -> user() -> nome_empresa}}" placeholder="Nome da empresa">
                     </div>
                     <div class="form-group col-md-6">
                         <label for="cnpj">CNPJ</label>
-                        <input type="number" class="form-control" id="cnpj" name="cnpj" value="{{auth() -> user() -> cnpj}}" data-mask="00.000.000/0000-00" placeholder="00.000.000/0000-00">
+                        <input type="text" class="form-control" id="cnpj" name="cnpj" value="{{auth() -> user() -> cnpj}}" data-mask="00.000.000/0000-00" placeholder="00.000.000/0000-00">
                     </div>
                 </div>
                 <div class="form-row">
@@ -26,11 +26,11 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="telefone_1_empresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{auth() -> user() -> telefone_1_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
+                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{auth() -> user() -> telefone_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="telefone_2_empresa">Telefone 2</label>
-                        <input type="tel" class="form-control" id="telefone_2_empresa" name="telefone_2_empresa" value="{{auth() -> user() -> telefone_2_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 00000-0000">
+                        <label for="celular_empresa">Celular</label>
+                        <input type="tel" class="form-control" id="celular_empresa" name="celular_empresa" value="{{auth() -> user() -> celular_empresa}}" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000">
                     </div>
                 </div>
                 <div class="form-row">
@@ -79,7 +79,7 @@
             </div>
 
         {{Form::hidden('_method', 'PUT')}}
-            <button type="submit" class="btn btn-outline-primary float-right">Salvar</button>
+            <button type="submit" class="btn btn-outline-info col-4">Salvar</button>
         {!! Form::close() !!}
     </div>
 @endsection

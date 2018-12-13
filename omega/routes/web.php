@@ -20,7 +20,7 @@ Route::post('/sensores', 'SensoresController@store');
 Route::get('/sensores/{id}/lista', 'SensoresController@sensoreslista');
 Route::get('/sensores/{id}/create', 'SensoresController@create');
 Route::get('/sensor/{id}/edit', 'SensoresController@edit');
-Route::get('/sensor/{id}', 'SensoresController@show');
+Route::get('/sensor/{sensor}', 'SensoresController@show');
 Route::put('/sensor/{id}', 'SensoresController@update');
 Route::put('/sensor/{id}/obs', 'SensoresController@updateSensor');
 Route::delete('/sensor/{id}', 'SensoresController@destroy');
@@ -40,5 +40,9 @@ Route::post('/pesquisar', 'PagesController@pesquisar');
 Route::get('/register', 'RegisterController@store');
 Route::get('/cadastro/edit', 'PagesController@edit');
 Route::put('/register', 'PagesController@update');
+
+// Rotas Responsável
+
+Route::resource('responsavel', 'ResponsavelController');
 
 Auth::routes();

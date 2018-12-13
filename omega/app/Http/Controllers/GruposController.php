@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Sensor;
 use App\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Grupo;
 
 class GruposController extends Controller
@@ -26,8 +26,8 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $user_id = auth() -> user() -> id_empresa;
-        $user = User::find($user_id);
+        $user = User::find(auth() -> user() -> id_empresa);
+
         return view('grupos.index') -> with('grupos', $user -> grupos);
     }
 
@@ -37,8 +37,7 @@ class GruposController extends Controller
 
     public function gruposlista()
     {
-        $user_id = auth() -> user() -> id;
-        $user = User::find($user_id);
+        $user = User::find(auth() -> user() -> id_empresa);
         return view('grupos.grupoLista') -> with('grupos', $user -> grupos);
     }
 
@@ -61,13 +60,13 @@ class GruposController extends Controller
     public function store(Request $request)
     {
         $this -> validate($request, [
-            'nome' => 'required'
+            'nome_grupo' => 'required'
         ]);
 
         // Criar Grupo
         $grupo = new Grupo;
-        $grupo -> nome_grupo = $request -> input('nome');
-        $grupo -> descricao_grupo = $request -> input('obs');
+        $grupo -> nome_grupo = $request -> input('nome_grupo');
+        $grupo -> descricao_grupo = $request -> input('descricao_grupo');
         $grupo -> empresa_id_empresa = auth() -> user() -> id_empresa;
         $grupo -> save();
 
@@ -91,12 +90,11 @@ class GruposController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Grupo $grupo)
     {
-        $grupo = Grupo::find($id);
 
         // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
+        if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
             return view('grupos.editarGrupo') -> with('grupo', $grupo);
@@ -112,13 +110,13 @@ class GruposController extends Controller
     public function update(Request $request, $id)
     {
         $this -> validate($request, [
-            'nome' => 'required'
+            'nome_grupo' => 'required'
         ]);
 
-        // Criar Grupo
+        // Editar Grupo
         $grupo = Grupo::find($id);
-        $grupo -> nome = $request -> input('nome');
-        $grupo -> obs = $request -> input('obs');
+        $grupo -> nome_grupo = $request -> input('nome_grupo');
+        $grupo -> descricao_grupo = $request -> input('descricao_grupo');
         $grupo -> save();
 
         return redirect('/grupos') -> with('success', 'Grupo Modificado');
@@ -133,13 +131,14 @@ class GruposController extends Controller
     public function destroy($id)
     {
         $grupo = Grupo::find($id);
-
+        $sensor = Sensor::where('grupo_id_grupo', 'LIKE', '%'.$grupo -> id_grupo.'%');
         // Check for correct user
-        if (auth() -> user() -> id !== $grupo -> user_id){
+        if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
         }
 
         $grupo -> delete();
+        $sensor -> delete();
         return redirect('/grupos') -> with ('success', 'Grupo Apagado');
     }
 }

@@ -7,12 +7,12 @@
             <h3>Adicionar Grupo</h3>
             {!! Form::open(['action' => 'GruposController@store', 'method' => 'POST']) !!}
                 <div class="form-group">
-                    {{Form::label('nome', 'Nome')}}
-                    {{Form::text('nome', '', ['class' => 'form-control', 'placeholder' => 'Nome do Grupo'])}}
+                    {{Form::label('nome_grupo', 'Nome')}}
+                    {{Form::text('nome_grupo', '', ['class' => 'form-control', 'placeholder' => 'Nome do Grupo'])}}
                 </div>
                 <div class="form-group">
-                    {{Form::label('obs', 'Observações')}}
-                    {{Form::textarea('obs', '', ['class' => 'form-control', 'rows' => '3'])}}
+                    {{Form::label('descricao_grupo', 'Observações')}}
+                    {{Form::textarea('descricao_grupo', '', ['class' => 'form-control', 'rows' => '3'])}}
                 </div>
                 {{Form::submit('Adicionar', ['class' => 'btn btn-outline-primary float-right'])}}
             {!! Form::close() !!}

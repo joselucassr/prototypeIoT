@@ -31,14 +31,14 @@
                             <tbody>
             @foreach ($grupos as $grupo)
                                 <tr>
-                                    <td>{{$grupo -> nome}}</td>
+                                    <td>{{$grupo -> nome_grupo}}</td>
                                     <td>6</td>
                                     <td>3</td>
                                     <td>1</td>
                                     <td>0</td>
                                     <td>Ativo</td>
-                                    <td><a href="/grupos/{{$grupo -> id}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog"></i></a></td>
-                                    <td><a href="/sensores/{{$grupo -> id}}/" class="gray-link"><i class="fas fa-arrow-right"></i></a></td>
+                                    <td><a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog"></i></a></td>
+                                    <td><a href="/sensores/{{$grupo -> id_grupo}}/" class="gray-link"><i class="fas fa-arrow-right"></i></a></td>
                                 </tr>
                 @endforeach
                                 </tbody>

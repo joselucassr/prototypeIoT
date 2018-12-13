@@ -100,10 +100,8 @@ class SensoresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Sensor $sensor)
     {
-        $sensor = Sensor::find($id);
-
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');

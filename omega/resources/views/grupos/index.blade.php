@@ -54,6 +54,10 @@
                             </div>
                         </div>
                 @endforeach
+            @else
+                    <div class="alert alert-info col-12 text-center mx-auto" role="alert">
+                        Você não possui nenhum grupo, clique  <a href="/grupos/create" class="alert-link">aqui</a> para adicionar um.
+                    </div>
             @endif
         </div>
     </div>
