@@ -15,7 +15,14 @@
                     </button>
                 </span>
                 </div>
-                <input type="hidden" value="{{auth()  -> user() -> id_empresa}}" name="id_empresa">
+
+                @if(Auth::guard('web') -> check())
+                    <input type="hidden" value="{{auth()  -> user() -> id_empresa}}" name="id_empresa">
+                @endif
+
+                @if(Auth::guard('responsavel') -> check())
+                    <input type="hidden" value="{{auth()  -> user() -> empresa_id_empresa}}" name="id_empresa">
+                @endif
             </form>
 
             @if (isset($details))

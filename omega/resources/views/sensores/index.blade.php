@@ -4,9 +4,11 @@
     <div class="container col-12" style="margin-top: 20px;">
         <h1 class="text-center">{{$data['grupo'] -> nome}}</h1>
         <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); padding: 0;">
-            <div class="col-2" style="margin-right: 15px">
-                <a href="/sensores/{{$data['grupo'] -> id_grupo}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
-            </div>
+            @if(Auth::guard('web') -> check())
+                <div class="col-2" style="margin-right: 15px">
+                    <a href="/sensores/{{$data['grupo'] -> id_grupo}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
+                </div>
+            @endif
             <div class="col-2">
                 <a href="/sensores/{{$data['grupo'] -> id_grupo}}/lista" class="gray-link"><i class="fas fa-list-ul"></i></a>
             </div>
@@ -21,9 +23,11 @@
                             <div class="col-4 float-right my-auto">
                                 <p class=" float-right" style="color: #218536;">{{$sensor -> bateria}}% <i class="fas fa-battery-full iconBateria"></i></p>
                             </div>
-                            <div class="col-2">
-                                <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
-                            </div>
+                            @if(Auth::guard('web') -> check())
+                                <div class="col-2">
+                                    <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
+                                </div>
+                            @endif
                         </div>
                             <div class="corpo">
                                 <div id="sensor{{$sensor -> id_sensor}}" class="mx-auto" style="width: 200px; height: 100px; padding-top: 10px">

@@ -16,8 +16,6 @@ Route::post('/login-responsavel', 'Auth\LoginController@responsavelLogin');
 
 Route::get('/login-empresa', 'Auth\LoginController@showLoginForm');
 
-Route::get('/painelgeral', 'PagesController@painelgeral');
-Route::get('/sensor', 'PagesController@sensor');
 Route::get('/sensores/{id}', 'SensoresController@index');
 Route::post('/sensores', 'SensoresController@store');
 Route::get('/sensores/{id}/lista', 'SensoresController@sensoreslista');
@@ -37,6 +35,7 @@ Route::get('/gruposlista', 'GruposController@gruposlista');
 
 Route::resource('grupos', 'GruposController');
 
+
 Route::get('/pesquisa', 'PagesController@pesquisa');
 Route::post('/pesquisar', 'PagesController@pesquisar');
 
@@ -48,4 +47,8 @@ Route::put('/register', 'PagesController@update');
 
 Route::resource('responsavel', 'ResponsavelController');
 
+Route::get('/teste', 'Responsavel\GruposResponsavelController@teste');
+Route::get('/teste2', 'Responsavel\GruposResponsavelController@teste2');
+
+// Rotas Autenticação
 Auth::routes();

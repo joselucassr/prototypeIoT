@@ -17,8 +17,13 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        if ($guard == "responsavel" && Auth::guard($guard)->check()) {
+            return redirect('/grupos');
+        }
+
         if (Auth::guard($guard)->check()) {
-            return redirect('/grupo/');
+            return redirect('/grupos');
         }
 
         return $next($request);

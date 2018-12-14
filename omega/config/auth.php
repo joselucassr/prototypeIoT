@@ -18,6 +18,11 @@ return [
         'passwords' => 'users',
     ],
 
+    'responsavel' => [
+        'driver' => 'eloquent',
+        'model' => App\Responsavel::class,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

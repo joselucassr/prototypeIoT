@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+
 use App\Sensor;
 use App\User;
 use Illuminate\Http\Request;
 use App\Grupo;
+
 
 class GruposController extends Controller
 {
@@ -16,7 +19,7 @@ class GruposController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware('auth:web,responsavel');
     }
 
     /**
@@ -26,7 +29,12 @@ class GruposController extends Controller
      */
     public function index()
     {
-        $user = User::find(auth() -> user() -> id_empresa);
+
+        if (Auth::guard('web') -> check()) {
+            $user = User::find(auth()->user()->id_empresa);
+        }elseif (Auth::guard('responsavel') -> check()){
+            $user = User::find(auth() -> user() -> empresa_id_empresa);
+        }
 
         return view('grupos.index') -> with('grupos', $user -> grupos);
     }
@@ -37,7 +45,11 @@ class GruposController extends Controller
 
     public function gruposlista()
     {
-        $user = User::find(auth() -> user() -> id_empresa);
+        if (Auth::guard('web') -> check()) {
+            $user = User::find(auth()->user()->id_empresa);
+        }elseif (Auth::guard('responsavel') -> check()){
+            $user = User::find(auth() -> user() -> empresa_id_empresa);
+        }
         return view('grupos.grupoLista') -> with('grupos', $user -> grupos);
     }
 

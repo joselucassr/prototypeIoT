@@ -16,15 +16,22 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Relatório</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/cadastro/edit">Meus Dados</a>
-                </li>
+
+                @if(Auth::guard('web') -> check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cadastro/edit">Meus Dados</a>
+                    </li>
+                @endif
+
                 <li class="nav-item">
                     <a class="nav-link" href="/pesquisa">Pesquisar</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/responsavel">Meus Usuários</a>
-                </li>
+
+                @if(Auth::guard('web') -> check())
+                    <li class="nav-item">
+                        <a class="nav-link" href="/responsavel">Meus Usuários</a>
+                    </li>
+                @endif
             </ul>
             <div class="float-right row" style="padding-right: 20px">
                 <ul class="navbar-nav mr-auto">
@@ -32,7 +39,7 @@
                     <!-- Authentication Links -->
                     @if (Auth::guest())
                     @else
-                         <li>
+                        <li>
                             <a class="btn btn-outline-danger" style="border: none" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

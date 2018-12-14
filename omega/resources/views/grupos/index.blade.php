@@ -3,9 +3,11 @@
 @section('content')
     <div class="container col-12" style="padding-bottom: 50px">
         <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); margin-top: 20px; margin-bottom: 30px">
-            <div class="col-2" style="margin-right: 15px">
-                <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>
-            </div>
+            @if(Auth::guard('web') -> check())
+                <div class="col-2" style="margin-right: 15px">
+                    <a href="/grupos/create" class="gray-link"><i class="fas fa-plus"></i></a>
+                </div>
+            @endif
             <div class="col-2">
                 <a href="/gruposlista" class="gray-link"><i class="fas fa-list-ul"></i></a>
             </div>
@@ -19,9 +21,11 @@
                                 <div class="text-left col-8">
                                     <a href="/sensores/{{$grupo -> id_grupo}}/" class="linkAzul"><h3>{{$grupo -> nome_grupo}}</h3></a>
                                 </div>
-                                <div class="text-right col-4">
-                                    <a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
-                                </div>
+                                @if(Auth::guard('web') -> check())
+                                    <div class="text-right col-4">
+                                        <a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-12">
                                 <table class="table table-striped">
