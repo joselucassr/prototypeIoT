@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-md-6 col-sm-10 mx-auto formCard">
         <h1 class="col-12">Login</h1>
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="{{ route('login-r') }}">
             {{ csrf_field() }}
             <div class="form-group{{ $errors->has('email_empresa') ? ' has-error' : '' }}">
                 <label>Email</label>

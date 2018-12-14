@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'Auth\LoginController@showResponsavelLoginForm');
+Route::post('/login-responsavel', 'Auth\LoginController@responsavelLogin');
+
 Route::get('/login-empresa', 'Auth\LoginController@showLoginForm');
 
 Route::get('/painelgeral', 'PagesController@painelgeral');
