@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="col-12 " style="margin-top: 40px;">
-        <a href="login-responsavel" class="btn btn-danger btn-lg float-right">Usuários</a>
+        <a href="/" class="btn btn-danger btn-lg float-right">Usuários</a>
     </div>
     <div class="col-md-6 col-sm-10 mx-auto formCard">
         <h1 class="col-12">Login Empresa</h1>
