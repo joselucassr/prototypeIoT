@@ -38,8 +38,7 @@
                     </span>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-outline-success float-right">Login</button>
-                        <a href="/cadastro" class="btn btn-outline-info float-left">Registrar</a>
+                        <button type="submit" class="btn btn    -success float-right">Login</button>
                     </form>
                 </div>
 
