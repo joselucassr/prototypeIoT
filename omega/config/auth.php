@@ -41,6 +41,11 @@ return [
             'provider' => 'users',
         ],
 
+        'responsavel' => [
+            'driver' => 'session',
+            'provider' => 'responsavel',
+        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
@@ -68,6 +73,11 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+
+        'responsavel' => [
+            'driver' => 'eloquent',
+            'model' => App\Responsavel::class,
         ],
 
         // 'users' => [

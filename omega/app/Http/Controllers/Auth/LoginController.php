@@ -35,6 +35,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:responsavel')->except('logout');
     }
 
     public function username()
@@ -43,6 +44,11 @@ class LoginController extends Controller
     }
 
     public function showLoginForm()
+    {
+        return view('pages.loginEmpresa');
+    }
+
+    public function showResponsavelLoginForm()
     {
         return view('pages.index');
     }
