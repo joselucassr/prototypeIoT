@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="col-md-6 col-sm-10 mx-auto formCard">
-        <h1 class="col-12">Login</h1>
+        <h1 class="col-12">Login Empresa</h1>
         <form method="POST" action="{{ route('login') }}">
             {{ csrf_field() }}
             <div class="form-group{{ $errors->has('email_empresa') ? ' has-error' : '' }}">

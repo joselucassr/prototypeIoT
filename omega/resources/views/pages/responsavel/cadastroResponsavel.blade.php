@@ -68,7 +68,7 @@
                         <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
                     </div>
                 </div>
-                <button class="btn btn-outline-info">Adicionar</button>
+                <button class="btn btn-outline-info float-right">Adicionar</button>
             </form>
         </div>
     </div>
