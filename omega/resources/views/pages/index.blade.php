@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="container">
-    <div class="col-12 ">
-        <a href="login-empresa" class="btn btn-outline-info float-right ">Login Empresa</a>
+    <div class="col-12 " style="margin-top: 40px;">
+        <a href="login-empresa" class="btn btn-info btn-lg float-right">Login Empresa</a>
     </div>
 
     <div class="col-md-6 col-sm-10 mx-auto formCard">
@@ -30,8 +30,8 @@
                     </span>
                 @endif
             </div>
-            <button type="submit" class="btn btn-primary float-right">Login</button>
-            <a href="/cadastro" class="btn btn-success float-left">Registrar</a>
+            <button type="submit" class="btn btn-outline-success float-right">Login</button>
+            <a href="/cadastro" class="btn btn-outline-info float-left">Registrar</a>
         </form>
         <div class="">
             <a class="btn btn-link" href="{{ route('password.request') }}">
