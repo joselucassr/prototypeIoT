@@ -63,7 +63,7 @@ class LoginController extends Controller
             'password' => 'required|min:6'
         ]);
 
-        if (Auth::guard('admin')->attempt(['email_responsavel' => $request->email_responsavel, 'password' => $request->password])) {
+        if (Auth::guard('responsavel')->attempt(['email_responsavel' => $request->email_responsavel, 'password' => $request->password])) {
 
             return redirect()->intended('/grupos');
         }

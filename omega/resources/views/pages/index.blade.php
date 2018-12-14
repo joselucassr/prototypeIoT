@@ -8,7 +8,7 @@
     <a href="/responsavel/create" class="btn btn-outline-info float-right ">Adicionar Usuário</a>
     <div class="col-md-6 col-sm-10 mx-auto formCard">
         <h1 class="col-12">Login</h1>
-        <form method="POST" action="{{ route('login-responsavel') }}">
+        <form method="POST" action="/login-responsavel">
             {{ csrf_field() }}
             <div class="form-group{{ $errors->has('email_responsavel') ? ' has-error' : '' }}">
                 <label>Email</label>
