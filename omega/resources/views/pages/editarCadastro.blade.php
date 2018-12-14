@@ -79,7 +79,7 @@
             </div>
 
         {{Form::hidden('_method', 'PUT')}}
-            <button type="submit" class="btn btn-outline-info col-4">Salvar</button>
+            <button type="submit" class="btn btn-outline-info float-right col-md-2">Salvar</button>
         {!! Form::close() !!}
     </div>
 @endsection

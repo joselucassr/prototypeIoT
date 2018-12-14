@@ -27,7 +27,7 @@
                 {{Form::textarea('descricao_grupo', $grupo -> descricao_grupo, ['class' => 'form-control', 'rows' => '3'])}}
             </div>
             {{Form::hidden('_method', 'PUT')}}
-            {{Form::submit('Modificar', ['class' => 'btn btn-outline-primary float-right'])}}
+            {{Form::submit('Modificar', ['class' => 'btn btn-outline-info float-right'])}}
             {!! Form::close() !!}
         </div>
     </div>
