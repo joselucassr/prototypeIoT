@@ -11,7 +11,8 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
+Route::get('/', 'Auth\LoginController@showResponsavelLoginForm');
+Route::get('/login-empresa', 'Auth\LoginController@showLoginForm');
 
 Route::get('/painelgeral', 'PagesController@painelgeral');
 Route::get('/sensor', 'PagesController@sensor');

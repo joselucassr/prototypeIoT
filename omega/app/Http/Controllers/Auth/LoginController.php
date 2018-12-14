@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
 class LoginController extends Controller
 {
     /*
@@ -51,5 +54,19 @@ class LoginController extends Controller
     public function showResponsavelLoginForm()
     {
         return view('pages.index');
+    }
+
+    public function responsavelLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email_responsavel'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt(['email_responsavel' => $request->email_responsavel, 'password' => $request->password])) {
+
+            return redirect()->intended('/grupos');
+        }
+        return back()->withInput($request->only('email_responsavel'));
     }
 }
