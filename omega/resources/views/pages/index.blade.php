@@ -5,7 +5,7 @@
     <div class="col-12 ">
         <a href="login-empresa" class="btn btn-outline-info float-right ">Login Empresa</a>
     </div>
-    <a href="/responsavel/create" class="btn btn-outline-info float-right ">Adicionar Usuário</a>
+
     <div class="col-md-6 col-sm-10 mx-auto formCard">
         <h1 class="col-12">Login</h1>
         <form method="POST" action="/login-responsavel">
