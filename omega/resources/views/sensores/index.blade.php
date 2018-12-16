@@ -39,9 +39,11 @@
                     </div>
                 @endforeach
             @else
-                <div class="alert alert-info col-12 text-center mx-auto" role="alert">
-                    Você não possui nenhum sensor, clique  <a href="/sensores/{{$data['grupo'] -> id_grupo  }}/create" class="alert-link">aqui</a> para adicionar um.
-                </div>
+                @if(Auth::guard('web') -> check())
+                    <div class="alert alert-info col-12 text-center mx-auto" role="alert">
+                        Você não possui nenhum sensor, clique  <a href="/sensores/{{$data['grupo'] -> id_grupo  }}/create" class="alert-link">aqui</a> para adicionar um.
+                    </div>
+                @endif
             @endif
         </div>
     </div>

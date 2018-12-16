@@ -60,6 +60,11 @@ class GruposController extends Controller
      */
     public function create()
     {
+        // Check for correct user
+        if (!Auth::guard('web') -> check()){
+            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        }
+
         return view('grupos.adicionarGrupo');
     }
 

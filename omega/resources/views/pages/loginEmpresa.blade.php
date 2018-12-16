@@ -17,25 +17,13 @@
             <div class="col-md-6 col-md-6 mx-auto" style="margin-top: 60px;">
                 <form method="POST" action="{{ route('login') }}" >
                     {{ csrf_field() }}
-                    <div class="form-group{{ $errors->has('email_empresa') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label>Email</label>
                         <input id="email" type="email" class="form-control" name="email_empresa" value="{{ old('email_empresa') }}" required autofocus placeholder="Digite o email">
-
-                        @if ($errors->has('email_empresa'))
-                            <span class="help-block">
-                            <strong>{{ $errors->first('email_empresa') }}</strong>
-                        </span>
-                        @endif
                     </div>
-                    <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                    <div class="form-group">
                         <label>Senha</label>
                         <input id="password" type="password" class="form-control" name="password" required placeholder="Senha">
-
-                        @if ($errors->has('password'))
-                            <span class="help-block">
-                            <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                        @endif
                     </div>
                     <button type="submit" class="btn btn-success float-right">Login</button>
                     <a href="/cadastro" class="btn btn-info float-left">Registrar</a>

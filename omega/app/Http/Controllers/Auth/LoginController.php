@@ -41,6 +41,18 @@ class LoginController extends Controller
         $this->middleware('guest:responsavel')->except('logout');
     }
 
+    protected function sendFailedLoginResponse(Request $request)
+    {
+        $errors = [$this->username() => trans('Dados Incorretos')];
+
+        if ($request->expectsJson()) {
+            return response()->json($errors, 422);
+        }
+
+        return redirect()->back()
+            ->withErrors($errors);
+    }
+
     public function username()
     {
         return 'email_empresa';

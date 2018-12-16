@@ -16,6 +16,7 @@ Route::post('/login-responsavel', 'Auth\LoginController@responsavelLogin');
 
 Route::get('/login-empresa', 'Auth\LoginController@showLoginForm');
 
+// Mostra página principal, Armazena, Mostra Lista, Cria, Mostra a Página de edição, Edita, Edita o OBS, e deleta os sensores
 Route::get('/sensores/{id}', 'SensoresController@index');
 Route::post('/sensores', 'SensoresController@store');
 Route::get('/sensores/{id}/lista', 'SensoresController@sensoreslista');
@@ -25,30 +26,27 @@ Route::get('/sensor/{sensor}', 'SensoresController@show');
 Route::put('/sensor/{id}', 'SensoresController@update');
 Route::put('/sensor/{id}/obs', 'SensoresController@updateSensor');
 Route::delete('/sensor/{id}', 'SensoresController@destroy');
+// -------------------------------------------------------------------------
+
+// Mostra a página de cadastro
 Route::get('/cadastro', 'PagesController@cadastro');
-Route::get('/editargrupo', 'PagesController@editarGrupo');
-Route::get('/adicionargrupo', 'PagesController@adicionarGrupo');
-Route::get('/configurarsensor', 'PagesController@configurarSensor');
-Route::get('/adicionarsensor', 'PagesController@adicionarSensor');
-Route::get('/editarcadastro', 'PagesController@editarCadastro');
+
+// Mostra os grupos em lista
 Route::get('/gruposlista', 'GruposController@gruposlista');
 
+// Cria as rotas para os Grupos
 Route::resource('grupos', 'GruposController');
 
+// Rotas para a pesquisa
+Route::get('/pesquisa', 'PesquisaController@pesquisa');
+Route::post('/pesquisar', 'PesquisaController@pesquisar');
 
-Route::get('/pesquisa', 'PagesController@pesquisa');
-Route::post('/pesquisar', 'PagesController@pesquisar');
-
-Route::get('/register', 'RegisterController@store');
+// Rotas para o mostrar as páginas de editar e o editar do registro da empresa
 Route::get('/cadastro/edit', 'PagesController@edit');
 Route::put('/register', 'PagesController@update');
 
 // Rotas Responsável
-
 Route::resource('responsavel', 'ResponsavelController');
-
-Route::get('/teste', 'Responsavel\GruposResponsavelController@teste');
-Route::get('/teste2', 'Responsavel\GruposResponsavelController@teste2');
 
 // Rotas Autenticação
 Auth::routes();
