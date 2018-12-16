@@ -28,7 +28,7 @@
                                 @endif
                             </div>
                             <div class="col-12">
-                                <table class="table table-striped">
+                                <table class="corpo table table-striped">
                                     <tbody>
                                     <tr>
                                         <th scope="row">Dias de Monitoramento:</th>

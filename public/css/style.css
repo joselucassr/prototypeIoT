@@ -80,6 +80,11 @@ a.linkAzul{
     background-color: #fafafa;
 }
 
+table.corpo{
+    border-radius: 10px;
+    box-shadow: 9px 9px 28px rgba(0,0,0,0.1);
+}
+
 .iconBateria{
     font-size: 15px;
     margin-bottom: 5px;
