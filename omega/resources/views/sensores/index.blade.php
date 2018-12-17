@@ -37,12 +37,6 @@
                                 }
                             }
                         }
-                        else{
-                            $cor_vermelha = '';
-                            $border_radius = '';
-                            $cor_titulo = 'rgba(0,0,0,0.85);';
-                            $cor_bateria = 'color: #218536;';
-                        }
                     ?>
                     <!-- Card Personalizado -->
                     <div class="container-fluid col-md-4" >
@@ -54,7 +48,7 @@
                                 </div>
                                 @if(Auth::guard('web') -> check())
                                     <div class="col-2" style="padding-top: 10px">
-                                        <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
+                                        <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right" style="{{$cor_bateria}}"></i></a>
                                     </div>
                                 @endif
                             </div>

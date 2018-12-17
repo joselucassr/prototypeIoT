@@ -26,7 +26,7 @@
                     </div>
                     <div class="form-group col-md-3">
                         <label for="telefone_1_empresa">Telefone</label>
-                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_1_empresa" value="{{auth() -> user() -> telefone_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
+                        <input type="tel" class="form-control" id="telefone_1_empresa" name="telefone_empresa" value="{{auth() -> user() -> telefone_empresa}}" data-mask="(00) 0000-0000" placeholder="(00) 0000-0000">
                     </div>
                     <div class="form-group col-md-3">
                         <label for="celular_empresa">Celular</label>
@@ -76,6 +76,18 @@
                         <input type="text" class="form-control" id="cep" value="{{auth() -> user() -> cep}}" name="cep" data-mask="00000-000" placeholder="00000-000">
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="password">Senha</label>
+                        <input type="password" class="form-control" id="password" name="password">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="password_confirmation">Confirmar Senha</label>
+                        <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                    </div>
+                </div>
+
             </div>
 
         {{Form::hidden('_method', 'PUT')}}

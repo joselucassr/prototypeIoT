@@ -28,11 +28,13 @@
                     <button type="submit" class="btn btn-success float-right">Login</button>
                     <a href="/cadastro" class="btn btn-info float-left">Registrar</a>
                 </form>
+                {{--
                 <div class="">
                     <a class="btn btn-link" href="{{ route('password.request') }}">
                         Esqueceu a senha?
                     </a>
                 </div>
+                --}}
             </div>
 
         </div>
