@@ -15,6 +15,14 @@
         <div class="row col-12 mx-auto" style="padding: 0;">
             @if (count($grupos) > 0)
                 @foreach ($grupos as $grupo)
+
+                    <?php
+                    $id_grupo = $grupo -> id_grupo;
+                    $bateria = \Illuminate\Support\Facades\DB::table('sensors') -> where('grupo_id_grupo', $id_grupo) -> where('bateria', '<', '25') -> get();
+                    $bateria_numero = count($bateria);
+                    ?>
+
+
                      <!-- Card Novo -->
                         <div class="container-fluid col-md-4" style="margin-bottom: 30px">
                             <div class="row col-12">
@@ -40,7 +48,7 @@
                                     </tr>
                                     <tr>
                                         <th scope="row">Bateria(s) Fraca(s):</th>
-                                        <td>2</td>
+                                        <td>{{$bateria_numero}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Alertas:</th>

@@ -46,7 +46,7 @@
                     ?>
                     <!-- Card Personalizado -->
                     <div class="container-fluid col-md-4" >
-                        <div  style="padding: 0 5px 30px 5px; margin: 0 5px 35px 5px; {{$cor_vermelha}} {{$border_radius}}">
+                        <div style="padding: 0 5px 30px 5px; margin: 0 5px 35px 5px; {{$cor_vermelha}} {{$border_radius}}">
                             <div class="row">
                                 <div class="col-6"><a href="/sensor/{{$sensor->id_sensor}}" class="gray-link" style="{{$cor_titulo}} font-size: 25px">{{$sensor -> nome_sensor }}</a></div>
                                 <div class="col-4 float-right my-auto" style="padding-top: 8px">

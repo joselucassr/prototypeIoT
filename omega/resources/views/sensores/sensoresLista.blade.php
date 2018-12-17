@@ -3,9 +3,11 @@
 @section('content')
     <div class="container col-12" style="padding-bottom: 50px">
         <div class="row float-right especifico" style="font-size: 30px; color: rgba(0,0,0,.50); margin-top: 20px; margin-bottom: 30px">
-            <div class="col-2" style="margin-right: 15px">
-                <a href="/sensores/{{$data['grupo'] -> id_grupo}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
-            </div>
+            @if(Auth::guard('web') -> check())
+                <div class="col-2" style="margin-right: 15px">
+                    <a href="/sensores/{{$data['grupo'] -> id_grupo}}/create" class="gray-link"><i class="fas fa-plus"></i></a>
+                </div>
+            @endif
             <div class="col-2">
                 <a href="/sensores/{{$data['grupo'] -> id_grupo}}" class="gray-link"><i class="fas fa-table"></i></a>
             </div>
