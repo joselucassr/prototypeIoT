@@ -4,7 +4,7 @@
     <div class="container col-12">
         <a class="gray-link" href="/sensores/{{$sensor -> grupo_id_grupo}}" style="font-size: 35px; position: relative; z-index: 999;"><i class="fas fa-long-arrow-alt-left"></i></a>
         <div class="col-12" style="margin-top: -50px;">
-            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome_sensor}} #{{$sensor -> id_sensor}}</h1>
+            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome_sensor}}  /Sensor ID:{{$sensor -> id_sensor}}</h1>
         </div>
         <div class="container col-12" style="padding-top: 20px;">
            <div class="row container-temp-chart">

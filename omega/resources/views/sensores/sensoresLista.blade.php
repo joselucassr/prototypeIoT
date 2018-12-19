@@ -24,7 +24,7 @@
                                 <th scope="col">Bateria</th>
                                 <th scope="col">Última Atualização</th>
                                 <th scope="col">Configurar</th>
-                                <th scope="col">Sensores</th>
+                                <th scope="col">Detalhar</th>
                             </tr>
                             </thead>
                             <tbody>

@@ -47,11 +47,11 @@
                                         <td>5</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Bateria(s) Fraca(s):</th>
+                                        <th scope="row"><aSensores com bateria fraca:</th>
                                         <td>{{$bateria_numero}}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Alertas:</th>
+                                        <th scope="row">Temperatura Crítica</th>
                                         <td>0</td>
                                     </tr>
                                     <tr>
