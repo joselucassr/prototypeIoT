@@ -20,6 +20,21 @@
                     $id_grupo = $grupo -> id_grupo;
                     $bateria = \Illuminate\Support\Facades\DB::table('sensors') -> where('grupo_id_grupo', $id_grupo) -> where('bateria', '<', '25') -> get();
                     $bateria_numero = count($bateria);
+
+                    $cor_vermelha_bateria = '';
+
+                    if ($bateria_numero > 0){
+                        $cor_vermelha_bateria = '#ff0000';
+                    }
+
+                    $temperaturas = \Illuminate\Support\Facades\DB::table('sensors') -> where('grupo_id_grupo', $id_grupo) -> where('temperatura', '>', 'tempmax') -> orWhere ('grupo_id_grupo', $id_grupo) -> where ('temperatura', '<', 'tempmin') -> get();
+                    $temperatura_numero = count($temperaturas);
+
+                    $cor_vermelha_temperatura = '';
+                    if ($temperatura_numero > 0){
+                        $cor_vermelha_temperatura = '#ff0000';
+                    }
+
                     ?>
 
 
@@ -46,13 +61,13 @@
                                         <th scope="row">Notificações Enviadas:</th>
                                         <td>5</td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row"><aSensores com bateria fraca:</th>
+                                    <tr style="color: {{$cor_vermelha_bateria}}">
+                                        <th scope="row">Sensores com bateria fraca:</th>
                                         <td>{{$bateria_numero}}</td>
                                     </tr>
-                                    <tr>
+                                    <tr style="color: {{$cor_vermelha_temperatura}}">
                                         <th scope="row">Temperatura Crítica</th>
-                                        <td>0</td>
+                                        <td>{{$temperatura_numero}}</td>
                                     </tr>
                                     <tr>
                                         <th scope="row">Status:</th>

@@ -1,10 +1,24 @@
 @extends('layouts.navbar')
 
 @section('content')
+
+    <?php
+    $diferenca = '';
+
+    if ($sensor -> temperatura != null){
+
+        if ($sensor -> temperatura > $sensor -> tempmax){
+            $diferenca = $sensor -> temperatura - $sensor -> tempmax;
+        } elseif($sensor -> temperatura < $sensor -> tempmin){
+            $diferenca = $sensor -> tempmin - $sensor -> temperatura ;
+        }
+    }
+    ?>
+
     <div class="container col-12">
         <a class="gray-link" href="/sensores/{{$sensor -> grupo_id_grupo}}" style="font-size: 35px; position: relative; z-index: 999;"><i class="fas fa-long-arrow-alt-left"></i></a>
         <div class="col-12" style="margin-top: -50px;">
-            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome_sensor}}  /Sensor ID:{{$sensor -> id_sensor}}</h1>
+            <h1 class="text-center" style="color: #4b4b4b; margin-top: 10px;">{{$sensor -> nome_sensor}}  / Sensor ID:{{$sensor -> id_sensor}}</h1>
         </div>
         <div class="container col-12" style="padding-top: 20px;">
            <div class="row container-temp-chart">
@@ -24,14 +38,25 @@
                </div>
            </div>
            <div class="col-12 row mx-auto container-sts-bat-anot">
-               <!-- Status -->
-               <div class="col-md-3">
-                   <h2>Status: <span style="color: #218536;">{{$sensor -> status}}</span></h2>
-               </div>
+               <div class="col-md-6">
+                   <div class="row">
+                       <!-- Status -->
+                       <div class="col-md-6">
+                           <h2>Status: <span style="color: #218536;">{{$sensor -> status}}</span></h2>
+                       </div>
 
-               <!-- Bateria -->
-               <div class="col-md-3">
-                    <h2>Bateria: {{$sensor -> bateria}}%</h2>
+                       <!-- Bateria -->
+                       <div class="col-md-6">
+                            <h2>Bateria: {{$sensor -> bateria}}%</h2>
+                       </div>
+                   </div>
+                   <div class="col-md-12">
+                       @if ($sensor -> temperatura > $sensor -> tempmax)
+                           <h3 style="color: #ec2222; padding-top: 50px">Temperatura {{$diferenca}} °C acima do ideal</h3>
+                       @elseif($sensor -> temperatura < $sensor -> tempmin)
+                           <h3 style="color: #ec2222; padding-top: 50px">Temperatura {{$diferenca}} °C abaixo do ideal</h3>
+                       @endif
+                   </div>
                </div>
 
                <!-- Anotações -->
