@@ -18,17 +18,12 @@
                 @foreach ($data['sensores'] as $sensor)
                     <?php
                         $diferenca = '';
-                        $cor_vermelha = '';
-                        $border_radius = '';
-                        $cor_titulo = 'rgba(0,0,0,0.85);';
-                        $cor_bateria = 'color: #218536;';
+                        $borda_vermelha = '';
+
 
                         if ($sensor -> temperatura != null){
                             if ($sensor -> temperatura > $sensor -> tempmax or $sensor -> temperatura < $sensor -> tempmin){
-                                $cor_vermelha = 'background-color: rgba(255,0,0,0.64);';
-                                $border_radius = 'border-radius: 10px';
-                                $cor_titulo = 'color: #fff;';
-                                $cor_bateria = 'color: #fff;';
+                                $borda_vermelha = 'border: 3px solid #ec2222;';
 
                                 if ($sensor -> temperatura > $sensor -> tempmax){
                                     $diferenca = $sensor -> temperatura - $sensor -> tempmax;
@@ -40,19 +35,19 @@
                     ?>
                     <!-- Card Personalizado -->
                     <div class="container-fluid col-md-4" >
-                        <div style="padding: 0 5px 30px 5px; margin: 0 5px 35px 5px; {{$cor_vermelha}} {{$border_radius}}">
+                        <div style="padding: 0 5px 30px 5px; margin: 0 5px 35px 5px;">
                             <div class="row">
-                                <div class="col-6"><a href="/sensor/{{$sensor->id_sensor}}" class="gray-link" style="{{$cor_titulo}} font-size: 25px">{{$sensor -> nome_sensor }}</a></div>
+                                <div class="col-6"><a href="/sensor/{{$sensor->id_sensor}}" class="gray-link" style="font-size: 25px">{{$sensor -> nome_sensor }}</a></div>
                                 <div class="col-4 float-right my-auto" style="padding-top: 8px">
-                                    <p class=" float-right" style="{{$cor_bateria}}">{{$sensor -> bateria}}% <i class="fas fa-battery-full iconBateria" style="{{$cor_bateria}}"></i></p>
+                                    <p class=" float-right">{{$sensor -> bateria}}% <i class="fas fa-battery-full iconBateria"></i></p>
                                 </div>
                                 @if(Auth::guard('web') -> check())
                                     <div class="col-2" style="padding-top: 10px">
-                                        <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right" style="{{$cor_bateria}}"></i></a>
+                                        <a class="gray-link" href="/sensor/{{$sensor -> id_sensor}}/edit"><i class="fas fa-cog d-inline float-right"></i></a>
                                     </div>
                                 @endif
                             </div>
-                                <div class="corpo">
+                                <div class="corpo" style="{{$borda_vermelha}}" onclick="location.href='/sensor/{{$sensor->id_sensor}}';">
                                     @if ($sensor -> temperatura != null)
                                         <div id="sensor{{$sensor -> id_sensor}}" class="mx-auto" style="width: 200px; height: 100px; padding-top: 10px">
                                         <!-- AQUI FICA O GRÁFICO -->
@@ -65,11 +60,6 @@
                                     <div class="col text-right" style="margin-top: 50px;"><p class="hora" style="color: rgba(0,0,0,0.65); font-weight: bold">Última Atualização: {{$sensor -> updated_at}}</p></div>
                                     @include('../inc/graficoRadial')
                                 </div>
-                            @if ($sensor -> temperatura > $sensor -> tempmax)
-                                <div class="text-center" style="margin-top: 5px"><h3 style="color: #fff">Temperatura {{$diferenca}} °C acima do ideal</h3></div>
-                            @elseif($sensor -> temperatura < $sensor -> tempmin)
-                                <div class="text-center" style="margin-top: 5px"><h3 style="color: #fff">Temperatura {{$diferenca}} °C abaixo do ideal</h3></div>
-                            @endif
                         </div>
                     </div>
                 @endforeach
