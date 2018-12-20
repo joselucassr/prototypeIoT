@@ -46,7 +46,7 @@
                                 </div>
                                 @if(Auth::guard('web') -> check())
                                     <div class="text-right col-4">
-                                        <a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20px;"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
+                                        <a href="/grupos/{{$grupo -> id_grupo}}/edit" class="gray-link" style="font-size: 20"><i class="fas fa-cog" style=" vertical-align: middle"></i></a>
                                     </div>
                                 @endif
                             </div>
@@ -58,7 +58,26 @@
                                         <td>25 Dias</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Notificações Enviadas:</th>
+                                        <th scope="row"><button type="button" class="btn btn-link gray-link" data-toggle="modal" data-target="#modal_notificacoes" style="padding: 0; text-decoration-color: #1b1e21;">Notificações Enviadas:</button></th>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="modal_notificacoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLabel">Notificações Enviadas</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Aqui irá mostrar a hora e a data das notificações
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         <td>5</td>
                                     </tr>
                                     <tr style="color: {{$cor_vermelha_bateria}}">
