@@ -11,8 +11,10 @@
 |
 */
 
+/*
 Route::get('/', 'Auth\LoginController@showResponsavelLoginForm');
 Route::post('/login-responsavel', 'Auth\LoginController@responsavelLogin');
+*/
 
 Route::get('/login-empresa', 'Auth\LoginController@showLoginForm');
 
@@ -46,7 +48,15 @@ Route::get('/cadastro/edit', 'PagesController@edit');
 Route::put('/register', 'PagesController@update');
 
 // Rotas Responsável
-Route::resource('responsavel', 'ResponsavelController');
+// Route::resource('responsavel', 'ResponsavelController');
+
+// Rotas Admin
+    // Login
+    Route::get('/login-admin', 'Auth\LoginController@loginPage');
+    Route::post('/login-admin', 'Auth\LoginController@adminLogin');
+    // Index
+    Route::post('/admin', 'AdminController@index');
+
 
 // Rotas Autenticação
 Auth::routes();

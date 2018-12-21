@@ -320,6 +320,7 @@ class ComposerStaticInit24a0da5bdaa5252ab6fa195a4f8fc2b1
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\GruposController' => __DIR__ . '/../..' . '/app/Http/Controllers/GruposController.php',
         'App\\Http\\Controllers\\PagesController' => __DIR__ . '/../..' . '/app/Http/Controllers/PagesController.php',
+        'App\\Http\\Controllers\\PesquisaController' => __DIR__ . '/../..' . '/app/Http/Controllers/PesquisaController.php',
         'App\\Http\\Controllers\\ResponsavelController' => __DIR__ . '/../..' . '/app/Http/Controllers/ResponsavelController.php',
         'App\\Http\\Controllers\\SensoresController' => __DIR__ . '/../..' . '/app/Http/Controllers/SensoresController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',

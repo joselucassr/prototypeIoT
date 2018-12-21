@@ -21,7 +21,6 @@ class User extends Authenticatable
 
     protected $fillable = [
         'nome_empresa', 'cnpj', 'email_empresa', 'telefone_empresa', 'celular_empresa', 'cidade', 'estado', 'cep', 'password'
-        /*'nome_usuario', 'cpf', 'email_usuario', 'telefone_usuario', 'celular_usuario', 'genero', 'password'*/
     ];
 
     /**
@@ -41,8 +40,8 @@ class User extends Authenticatable
         return $this -> hasMany('App\Sensor', 'empresa_id_empresa');
     }
 
-    public function responsaveis(){
+    /* public function responsaveis(){
         return $this -> hasMany('App\Responsavel', 'empresa_id_empresa', 'id_empresa');
-    }
+    } */
 
 }

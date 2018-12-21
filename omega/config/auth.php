@@ -23,6 +23,11 @@ return [
         'model' => App\Responsavel::class,
     ],
 
+    'admin' => [
+        'driver' => 'eloquent',
+        'model' => App\Admin::class,
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards
@@ -49,6 +54,11 @@ return [
         'responsavel' => [
             'driver' => 'session',
             'provider' => 'responsavel',
+        ],
+
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admin',
         ],
 
         'api' => [
@@ -83,6 +93,11 @@ return [
         'responsavel' => [
             'driver' => 'eloquent',
             'model' => App\Responsavel::class,
+        ],
+
+        'admin' => [
+            'driver' => 'eloquent',
+            'model' => App\Admin::class,
         ],
 
         // 'users' => [

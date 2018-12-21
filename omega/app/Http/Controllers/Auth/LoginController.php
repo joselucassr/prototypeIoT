@@ -38,7 +38,8 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:responsavel')->except('logout');
+        // $this->middleware('guest:responsavel')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
     }
 
     protected function sendFailedLoginResponse(Request $request)
@@ -63,6 +64,7 @@ class LoginController extends Controller
         return view('pages.loginEmpresa');
     }
 
+    /*
     public function showResponsavelLoginForm()
     {
         return view('pages.index');
@@ -81,4 +83,24 @@ class LoginController extends Controller
         }
         return back()->withInput($request->only('email_responsavel'));
     }
+    */
+
+    public function loginPage(){
+        return ('admin.login');
+    }
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request, [
+            'email_admin'   => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        if (Auth::guard('admin')->attempt(['email_admin' => $request->email_admin, 'password' => $request->password])) {
+
+            return redirect()->intended('/admin');
+        }
+        return back()->withInput($request->only('email_admin'));
+    }
+
 }
