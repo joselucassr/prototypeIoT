@@ -2,17 +2,8 @@
 
 @section('content')
     <div class="card">
-        <div class="card-header">
-            <ul class="nav nav-tabs card-header-tabs">
-                <li class="nav-item">
-                    <a class="nav-link " href="/">Usuários</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" href="login-empresa">Empresa</a>
-                </li>
-            </ul>
-        </div>
-        <div class="card-body ">
+
+        <div class="card-body " style="padding-top: 100px; border-color: #ffffff;">
             <h1 class="card-title text-center" style="margin-top: 60px;">Login</h1>
             <div class="col-md-6 col-md-6 mx-auto" style="margin-top: 60px;">
                 <form method="POST" action="{{ route('login') }}" >
@@ -25,8 +16,7 @@
                         <label>Senha</label>
                         <input id="password" type="password" class="form-control" name="password" required placeholder="Senha">
                     </div>
-                    <button type="submit" class="btn btn-success float-right">Login</button>
-                    <a href="/cadastro" class="btn btn-info float-left">Registrar</a>
+                    <button type="submit" class="btn btn-info float-right">Login</button>
                 </form>
                 {{--
                 <div class="">
