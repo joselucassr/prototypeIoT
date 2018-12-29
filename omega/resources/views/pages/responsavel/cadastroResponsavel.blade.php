@@ -33,31 +33,14 @@
                         <input type="tel" class="form-control" id="celular_responsavel" value="{{ old('celular_responsavel') }}" name="celular_responsavel" data-mask="(00) 00000-0000" placeholder="(00) 00000-0000">
                     </div>
                 </div>
-                <fieldset class="form-group">
-                    <div class="row">
-                        <legend class="col-form-label col-sm-2 pt-0">Gênero</legend>
-                        <div class="col-sm-10">
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio"  name="genero" id="masculino" value="1" checked>
-                                <label class="form-check-label" for="masculino">
-                                    Masculino
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="radio" name="genero" id="feminino" value="2">
-                                <label class="form-check-label" for="feminino">
-                                    Feminino
-                                </label>
-                            </div>
-                            <div class="form-check disabled">
-                                <input class="form-check-input" type="radio" name="genero" id="outro" value="3">
-                                <label class="form-check-label" for="outro">
-                                    Outro
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </fieldset>
+                <div class="form-group">
+                    <label for="nivel_acesso">Permissão de Acesso</label>
+                    <select class="form-control" id="nivel_acesso">
+                        <option>Administrador</option>
+                        <option>Usuário</option>
+
+                    </select>
+                </div>
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label for="password">Senha</label>

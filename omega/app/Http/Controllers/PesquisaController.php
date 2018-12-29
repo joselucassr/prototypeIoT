@@ -28,7 +28,7 @@ class PesquisaController extends Controller
 
         if (auth() -> user() -> id_empresa == $id_empresa or auth() -> user() -> empresa_id_empresa == $id_empresa){
             if ($pesquisa != ''){
-                $sensor = Sensor::where('id_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) /* ->orWhere('nome_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) */ -> get();
+                $sensor = Sensor::where('id_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) ->orWhere('nome_sensor','LIKE','%'.$pesquisa.'%') -> where('empresa_id_empresa', $id_empresa) -> get();
                 if(count($sensor) > 0) {
                     return view('pages.pesquisa') -> withDetails($sensor) -> withQuery($pesquisa);
                 } else{

@@ -40,7 +40,7 @@
                 </div>
                 <div class="form-group">
                     {{Form::label('obs', 'Observações')}}
-                    {{Form::textarea('obs', '', ['class' => 'form-control', 'rows' => '3', 'required'])}}
+                    {{Form::textarea('obs', '', ['class' => 'form-control', 'rows' => '3'])}}
                     <div class="invalid-feedback">
                         Campo Obrigatório
                     </div>

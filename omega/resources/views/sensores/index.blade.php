@@ -75,5 +75,5 @@
 
 
 @section('scripts')
-    <script src="https://rawgit.com/kimmobrunfeldt/progressbar.js/1.0.0/dist/progressbar.js"></script>
+    <script src="{{ asset('js/progressbar.js') }}"></script>
 @endsection

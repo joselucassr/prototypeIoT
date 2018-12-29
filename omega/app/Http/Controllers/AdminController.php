@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 
+use App\User;
+use Illuminate\Support\Facades\DB;
+
 class AdminController extends Controller
 {
     public function __construct()
@@ -11,6 +14,7 @@ class AdminController extends Controller
     }
 
     public function index(){
-        return ('admin.index');
+        $usuarios = User::all();
+        return view('admin.index') -> with('usuarios', $usuarios);
     }
 }

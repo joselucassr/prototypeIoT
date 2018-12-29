@@ -11,8 +11,9 @@
 |
 */
 
+
+Route::get('/', 'PagesController@index');
 /*
-Route::get('/', 'Auth\LoginController@showResponsavelLoginForm');
 Route::post('/login-responsavel', 'Auth\LoginController@responsavelLogin');
 */
 
@@ -31,7 +32,7 @@ Route::delete('/sensor/{id}', 'SensoresController@destroy');
 // -------------------------------------------------------------------------
 
 // Mostra a página de cadastro
-Route::get('/cadastro', 'PagesController@cadastro');
+Route::get('/cadastro', 'PagesController@cadastro')->middleware('auth:admin');
 
 // Mostra os grupos em lista
 Route::get('/gruposlista', 'GruposController@gruposlista');
@@ -45,17 +46,18 @@ Route::post('/pesquisar', 'PesquisaController@pesquisar');
 
 // Rotas para o mostrar as páginas de editar e o editar do registro da empresa
 Route::get('/cadastro/edit', 'PagesController@edit');
-Route::put('/register', 'PagesController@update');
+Route::put('/register', 'PagesController@update')->middleware('auth:admin');
 
 // Rotas Responsável
 // Route::resource('responsavel', 'ResponsavelController');
 
 // Rotas Admin
     // Login
+
     Route::get('/login-admin', 'Auth\LoginController@loginPage');
     Route::post('/login-admin', 'Auth\LoginController@adminLogin');
     // Index
-    Route::post('/admin', 'AdminController@index');
+    Route::get('/admin', 'AdminController@index');
 
 
 // Rotas Autenticação

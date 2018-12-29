@@ -193,7 +193,6 @@ class SensoresController extends Controller
         return Redirect::back() -> with('success', 'Sensor Modificado');
     }
 
-
     /**
      * Remove the specified resource from storage.
      *

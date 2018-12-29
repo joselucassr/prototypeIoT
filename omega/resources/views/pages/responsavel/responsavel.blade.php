@@ -22,7 +22,7 @@
                                     <th scope="col">CPF</th>
                                     <th scope="col">Telefone</th>
                                     <th scope="col">Celular</th>
-                                    <th scope="col">Gênero</th>
+                                    <th scope="col">Permissão</th>
                                     <th scope="col">Editar</th>
                                     <th scope="col">Excluir</th>
                                 </tr>
@@ -36,15 +36,8 @@
                                         <td>{{$responsavel -> cpf}}</td>
                                         <td>{{$responsavel -> telefone_responsavel}}</td>
                                         <td>{{$responsavel -> celular_responsavel}}</td>
-                                        <td>
-                                            @if($responsavel -> genero == 1)
-                                                {{$genero = 'Masculino'}}
-                                            @elseif($responsavel -> genero == 2)
-                                                {{$genero = 'Feminino'}}
-                                            @else
-                                                {{$genero = 'Outro'}}
-                                            @endif
-                                        </td>
+                                        <td>{{$responsavel -> celular_responsavel}}</td>
+
                                         <td><a href="/responsavel/{{$responsavel -> id_responsavel}}/edit" class="gray-link" style="font-size: 20px;"><i class="far fa-edit"></i></a></td>
                                         <td>
                                             <div style="padding-right: 45px;">

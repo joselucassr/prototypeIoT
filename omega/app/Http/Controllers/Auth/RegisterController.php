@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/grupos/';
+    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -39,7 +39,7 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:responsavel');
+        //$this->middleware('guest:responsavel');
     }
 
     /**
