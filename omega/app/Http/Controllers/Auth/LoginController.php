@@ -38,7 +38,7 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        // $this->middleware('guest:responsavel')->except('logout');
+        $this->middleware('guest:responsavel')->except('logout');
         $this->middleware('guest:admin')->except('logout');
     }
 
@@ -56,7 +56,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'email_empresa';
+        return 'email';
     }
 
     public function showLoginForm()
@@ -64,43 +64,53 @@ class LoginController extends Controller
         return view('pages.loginEmpresa');
     }
 
-    /*
+
     public function showResponsavelLoginForm()
     {
         return view('pages.index');
     }
 
-    public function responsavelLogin(Request $request)
+    protected function attemptLogin(Request $request)
     {
-        $this->validate($request, [
-            'email_responsavel'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
+        $userAttemptWeb = Auth::guard('web')->attempt(
+            $this->credentials($request), $request->has('remember')
+        );
 
-        if (Auth::guard('responsavel')->attempt(['email_responsavel' => $request->email_responsavel, 'password' => $request->password])) {
+        $userAttemptResponsavel = Auth::guard('responsavel')->attempt(
+            $this->credentials($request), $request->has('remember')
+        );
+
+        $userAttemptAdmin = Auth::guard('admin')->attempt(
+            $this->credentials($request), $request->has('remember')
+        );
+
+        if ($userAttemptResponsavel){
+            return $userAttemptResponsavel;
+        }
+
+        if ($userAttemptWeb){
+            return $userAttemptWeb;
+        }
+
+        if ($userAttemptAdmin){
+            return $userAttemptAdmin;
+        }
+    }
+
+    public function authenticate(Request $request)
+    {
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
             return redirect()->intended('/grupos');
-        }
-        return back()->withInput($request->only('email_responsavel'));
-    }
-    */
 
-    public function loginPage(){
-        return view('admin.loginAdmin');
-    }
+        }elseif (Auth::guard('responsavel')->attempt(['email' => $request->email, 'password' => $request->password])){
 
-    public function adminLogin(Request $request)
-    {
-        $this->validate($request, [
-            'email_admin'   => 'required|email',
-            'password' => 'required|min:6'
-        ]);
+            return redirect()->intended('/grupos');
 
-        if (Auth::guard('admin')->attempt(['email_admin' => $request->email_admin, 'password' => $request->password])) {
+        }elseif (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password])) {
 
             return redirect()->intended('/admin');
         }
-        return back()->withInput($request->only('email_admin'));
+        return back()->withInput($request->only('email'));
     }
-
 }

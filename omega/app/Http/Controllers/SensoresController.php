@@ -17,7 +17,7 @@ class SensoresController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:web');
+        $this->middleware('auth:web,responsavel');
     }
 
 
@@ -32,9 +32,9 @@ class SensoresController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){ */
+            if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){
                 return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            }
         }
 
         return view('sensores.index') -> with( 'data', ['sensores' => $grupo -> sensores, 'grupo' => $grupo]);
@@ -51,9 +51,9 @@ class SensoresController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){ */
+             if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){
             return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            }
         }
 
         return view('sensores.sensoresLista') -> with( 'data', ['sensores' => $grupo -> sensores, 'grupo' => $grupo]);
@@ -108,9 +108,9 @@ class SensoresController extends Controller
     {
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){ */
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
         }
 
 
@@ -153,9 +153,9 @@ class SensoresController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){ */
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
         }
 
         $sensor -> empresa_id_empresa = auth() -> user() -> id_empresa;
@@ -182,9 +182,9 @@ class SensoresController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){ */
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
         }
 
         $sensor -> obs = $request -> input('obs');
@@ -205,9 +205,9 @@ class SensoresController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $sensor -> empresa_id_empresa){
-            /* if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){ */
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
-            //}
+            if (auth() -> user() -> empresa_id_empresa !== $sensor -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            }
         }
 
         $sensor -> delete();

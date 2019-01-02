@@ -58,7 +58,7 @@
                                         <td>25 Dias</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row"><button type="button" class="btn btn-link gray-link" data-toggle="modal" data-target="#modal_notificacoes" style="padding: 0; text-decoration-color: #1b1e21;">Notificações Enviadas:</button></th>
+                                        <th scope="row"><button type="button" class="btn btn-link gray-link" data-toggle="modal" data-target="#modal_notificacoes" style="padding: 0; text-decoration:none; color:#000000 ">Notificações Enviadas:</button></th>
                                             <!-- Modal -->
                                             <div class="modal fade" id="modal_notificacoes" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                 <div class="modal-dialog" role="document">

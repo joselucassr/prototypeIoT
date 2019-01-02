@@ -44,16 +44,18 @@
                             </thead>
                             <tbody>
                             @foreach ($usuarios as $usuario)
-                                <tr>
+                                <tr onclick="location.href='/admin/empresa/{{$usuario->id_empresa}}';">
                                     <th scope="col">{{$usuario -> id_empresa}}</th>
                                     <th scope="col">{{$usuario -> nome_empresa}}</th>
                                     <th scope="col">{{$usuario -> cnpj}}</th>
-                                    <th scope="col">{{$usuario -> email_empresa}}</th>
+                                    <th scope="col">{{$usuario -> email}}</th>
                                     <th scope="col">{{$usuario -> telefone_empresa}}</th>
                                     <th scope="col">{{$usuario -> celular_empresa}}</th>
                                     <th scope="col">{{$usuario -> cidade}} ({{$usuario -> estado}})</th>
                                 </tr>
                             @endforeach
+                            </tbody>
+                        </table>
                             @else
                                 <div class="alert alert-info col-12 text-center mx-auto" role="alert">
                                     Você não possui nenhum usuário, clique <a href="/cadastro" class="alert-link">aqui</a> para adicionar um.
@@ -61,4 +63,6 @@
                         @endif
                     </div>
                 </div>
+        </div>
+    </div>
 @endsection

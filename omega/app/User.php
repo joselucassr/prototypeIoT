@@ -40,8 +40,8 @@ class User extends Authenticatable
         return $this -> hasMany('App\Sensor', 'empresa_id_empresa');
     }
 
-    /* public function responsaveis(){
+    public function responsaveis(){
         return $this -> hasMany('App\Responsavel', 'empresa_id_empresa', 'id_empresa');
-    } */
+    }
 
 }

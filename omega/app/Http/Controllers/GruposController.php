@@ -19,7 +19,7 @@ class GruposController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:web');
+        $this->middleware('auth:web,responsavel');
     }
 
     /**
@@ -32,9 +32,9 @@ class GruposController extends Controller
 
         if (Auth::guard('web') -> check()) {
             $user = User::find(auth()->user()->id_empresa);
-        }/*elseif (Auth::guard('responsavel') -> check()){
+        }elseif (Auth::guard('responsavel') -> check()){
             $user = User::find(auth() -> user() -> empresa_id_empresa);
-        }*/
+        }
 
         return view('grupos.index') -> with('grupos', $user -> grupos);
     }
@@ -47,9 +47,9 @@ class GruposController extends Controller
     {
         if (Auth::guard('web') -> check()) {
             $user = User::find(auth()->user()->id_empresa);
-        }/*elseif (Auth::guard('responsavel') -> check()){
+        }elseif (Auth::guard('responsavel') -> check()){
             $user = User::find(auth() -> user() -> empresa_id_empresa);
-        }*/
+        }
         return view('grupos.grupoLista') -> with('grupos', $user -> grupos);
     }
 
@@ -61,11 +61,16 @@ class GruposController extends Controller
     public function create()
     {
         // Check for correct user
-        if (!Auth::guard('web') -> check()){
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
+        /*
+        if (Auth::guard('web') -> check() or Auth::guard('responsavel') -> check()){
+            return view('grupos.adicionarGrupo');
         }
+        */
+        if (Auth::guard('web') -> check()){
+            return view('grupos.adicionarGrupo');
+        }
+        return redirect('/grupos') -> with('error', 'Página não autorizada');
 
-        return view('grupos.adicionarGrupo');
     }
 
     /**
@@ -112,7 +117,9 @@ class GruposController extends Controller
 
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
+            //if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            //}
         }
             return view('grupos.editarGrupo') -> with('grupo', $grupo);
     }
@@ -151,7 +158,9 @@ class GruposController extends Controller
         $sensor = Sensor::where('grupo_id_grupo', 'LIKE', '%'.$grupo -> id_grupo.'%');
         // Check for correct user
         if (auth() -> user() -> id_empresa !== $grupo -> empresa_id_empresa){
-            return redirect('/grupos') -> with('error', 'Página não autorizada');
+            //if (auth() -> user() -> empresa_id_empresa !== $grupo -> empresa_id_empresa){
+                return redirect('/grupos') -> with('error', 'Página não autorizada');
+            //}
         }
 
         $grupo -> delete();

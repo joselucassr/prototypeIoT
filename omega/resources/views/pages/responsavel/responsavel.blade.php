@@ -32,7 +32,7 @@
                                 @foreach($data['responsavel'] as $responsavel)
                                     <tr>
                                         <td>{{$responsavel -> nome_responsavel}}</td>
-                                        <td>{{$responsavel -> email_responsavel}}</td>
+                                        <td>{{$responsavel -> email}}</td>
                                         <td>{{$responsavel -> cpf}}</td>
                                         <td>{{$responsavel -> telefone_responsavel}}</td>
                                         <td>{{$responsavel -> celular_responsavel}}</td>

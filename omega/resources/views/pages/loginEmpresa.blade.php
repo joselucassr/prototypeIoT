@@ -10,7 +10,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label>Email</label>
-                        <input id="email" type="email" class="form-control" name="email_empresa" value="{{ old('email_empresa') }}" required autofocus placeholder="Digite o email">
+                        <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus placeholder="Digite o email">
                     </div>
                     <div class="form-group">
                         <label>Senha</label>

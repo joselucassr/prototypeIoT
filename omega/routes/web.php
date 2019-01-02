@@ -49,7 +49,7 @@ Route::get('/cadastro/edit', 'PagesController@edit');
 Route::put('/register', 'PagesController@update')->middleware('auth:admin');
 
 // Rotas Responsável
-// Route::resource('responsavel', 'ResponsavelController');
+Route::resource('responsavel', 'ResponsavelController');
 
 // Rotas Admin
     // Login
